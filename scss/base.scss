@@ -1,0 +1,28 @@
+@font-face {
+    font-family: Avenir;
+    src: url("../fonts/Avenir/AvenirLTStd-Book.otf") format("opentype");
+}
+// @font-face {
+//     font-family: Aleo Light;
+//     src: url("../fonts/Aleo/Aleo-Light.otf") format("opentype");
+// }
+@font-face {
+    font-family: Aleo;
+    src: url("../fonts/Aleo/Aleo-Regular.otf") format("opentype");
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.8rem;
+  font-family: Avenir;
+  line-height: 1.5;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-family: Aleo;
+  font-weight: bold;
+}

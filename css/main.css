@@ -1,3 +1,87 @@
+@font-face {
+  font-family: Avenir;
+  src: url("../fonts/Avenir/AvenirLTStd-Book.otf") format("opentype"); }
+
+@font-face {
+  font-family: Aleo;
+  src: url("../fonts/Aleo/Aleo-Regular.otf") format("opentype"); }
+
+html {
+  font-size: 62.5%; }
+
 body {
+  font-size: 1.8rem;
+  font-family: Avenir;
+  line-height: 1.5; }
+
+h1, h2, h3, h4, h5, h6 {
   margin: 0;
-  background-color: #bada55; }
+  font-family: Aleo;
+  font-weight: bold; }
+
+a.bp-btn {
+  color: white;
+  font-size: 1.6rem;
+  padding: 1.2rem 1.8rem;
+  font-family: Aleo;
+  font-weight: bold;
+  transition: ease all .2s;
+  text-transform: uppercase;
+  background-color: purple;
+  text-decoration: none; }
+  a.bp-btn.orange {
+    background-color: #FF6F3F; }
+  a.bp-btn.blue {
+    background-color: #528CA5; }
+  a.bp-btn.brown {
+    background-color: #7F6C5F; }
+  a.bp-btn.lg {
+    padding: 1.2rem 3.6rem; }
+  a.bp-btn:hover {
+    opacity: .8; }
+
+article.hero {
+  padding: 16rem 1.5rem; }
+  article.hero .content {
+    text-align: center; }
+    article.hero .content h1 {
+      color: #FFAF3F; }
+    article.hero .content p {
+      color: #7F6C5F; }
+    article.hero .content h1, article.hero .content p {
+      margin-bottom: 2rem; }
+    article.hero .content img.logo {
+      width: 28rem;
+      height: 28rem;
+      margin-bottom: 1rem; }
+  article.hero section.top {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 10;
+    padding: 2rem; }
+    article.hero section.top a {
+      position: relative;
+      top: -1rem;
+      margin-left: 1rem; }
+      article.hero section.top a:hover {
+        top: -.6rem; }
+      article.hero section.top a::before {
+        content: '';
+        position: absolute;
+        z-index: 7;
+        left: 10%;
+        top: -2rem;
+        right: 0;
+        border-left: 4px solid #7F6C5F;
+        border-right: 4px solid #7F6C5F;
+        background-color: transparent;
+        width: 80%;
+        height: 2rem; }
+      article.hero section.top a.orange::before {
+        border-color: #FF6F3F; }
+      article.hero section.top a.blue::before {
+        border-color: #528CA5; }

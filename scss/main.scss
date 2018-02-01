@@ -1,5 +1,93 @@
-$badass: #bada55;
-body {
-  margin: 0;
-  background-color: $badass;
+@import 'base';
+@import 'vars';
+
+a.bp-btn {
+  color: white;
+  font-size: 1.6rem;
+  padding: 1.2rem 1.8rem;
+  font-family: Aleo;
+  font-weight: bold;
+  transition: ease all .2s;
+  text-transform: uppercase;
+  background-color: purple;
+  text-decoration: none;
+  &.orange {
+    background-color: $bp-bitcamp-orange;
+  }
+  &.blue {
+    background-color: $bp-medium-blue;
+  }
+  &.brown {
+    background-color: $bp-dark-brown;
+  }
+  &.lg {
+    padding: 1.2rem 3.6rem;
+  }
+  &:hover {
+    opacity: .8;
+  }
+  // border-top: 2px soid $bp-yellow-orange;
+}
+
+article.hero {
+  padding: 16rem 1.5rem;
+  .content {
+    text-align: center;
+    h1 {
+      color: $bp-yellow-orange;
+    }
+    p {
+      color: $bp-dark-brown;
+    }
+    h1, p {
+      margin-bottom: 2rem;
+    }
+    img.logo {
+      width: 28rem;
+      height: 28rem;
+      margin-bottom: 1rem;
+    }
+  }
+  section.top {
+    position: absolute;
+    display: flex;
+    justify-content: flex-end;
+    top: 0;
+    right: 0;
+    width: 100%;
+    z-index: 10;
+    padding: 2rem;
+    a {
+      position: relative;
+      top: -1rem;
+      margin-left: 1rem;
+      &:hover {
+        top: -.6rem;
+      }
+      &::before {
+        content: '';
+        position: absolute;
+        z-index: 7;
+        left: 10%;
+        top: -2rem;
+        right: 0;
+        border-left: 4px solid $bp-dark-brown;
+        border-right: 4px solid $bp-dark-brown;
+        background-color: transparent;
+        width: 80%;
+        height: 2rem;
+        // TODO ADD LINES
+      }
+      &.orange {
+        &::before {
+          border-color: $bp-bitcamp-orange;
+        }
+      }
+      &.blue {
+        &::before {
+          border-color: $bp-medium-blue;
+        }
+      }
+    }
+  }
 }
