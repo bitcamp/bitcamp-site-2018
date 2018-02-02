@@ -6,10 +6,10 @@ http://bit.camp/bitcamp-site-2018
 
 `$ npm install`
 
-## Build SASS to CSS
+## Build SCSS to CSS
 
 `$ npm run build-scss`
 
-## Watch SASS for changes to build CSS
+## Watch SCSS for changes to build CSS
 
 `$ npm run watch-scss`
