@@ -1,10 +1,20 @@
 @import 'base';
 @import 'vars';
 
+a {
+  color: $bp-bitcamp-orange;
+  &:hover {
+    text-decoration: none;
+    color: $bp-bitcamp-orange;
+    opacity: .7;
+  }
+}
+
+
 a.bp-btn {
   color: white;
   font-size: 1.6rem;
-  padding: 1.2rem 1.8rem;
+  padding: 1rem 1.8rem;
   font-family: Aleo;
   font-weight: bold;
   transition: ease all .2s;
@@ -21,7 +31,7 @@ a.bp-btn {
     background-color: $bp-dark-brown;
   }
   &.lg {
-    padding: 1.2rem 3.6rem;
+    padding: 1rem 3.6rem;
   }
   &:hover {
     opacity: .8;
@@ -51,6 +61,7 @@ article.hero {
   section.top {
     position: absolute;
     display: flex;
+    align-items: flex-start;
     justify-content: flex-end;
     top: 0;
     right: 0;
@@ -59,10 +70,10 @@ article.hero {
     padding: 2rem;
     a {
       position: relative;
-      top: -1rem;
+      top: -.5rem;
       margin-left: 1rem;
       &:hover {
-        top: -.6rem;
+        top: -.2rem;
       }
       &::before {
         content: '';
@@ -76,7 +87,6 @@ article.hero {
         background-color: transparent;
         width: 80%;
         height: 2rem;
-        // TODO ADD LINES
       }
       &.orange {
         &::before {
@@ -90,4 +100,83 @@ article.hero {
       }
     }
   }
+}
+
+.page-section {
+  padding: 8rem 0rem;
+  h2 {
+    font-size: 2.4rem;
+    margin-bottom: 2rem;
+  }
+  h3 {
+    font-weight: normal;
+    opacity: .9;
+  }
+  h4 {
+    font-size: 2.0rem;
+    color: $bp-yellow-orange;
+  }
+  h5 {
+    font-size: 1.8rem;
+    color: $bp-yellow-orange;
+  }
+  p {
+    margin-top: 4rem;
+    opacity: .9;
+  }
+  .btn-container {
+    margin-top: 4rem;
+  }
+  &.dark {
+    background-color: $bp-midnight-blue;
+    color: white;
+  }
+  &.medium {
+    background-color: $bp-midnight-blue-light;
+    color: white;
+  }
+}
+
+article.intro {
+  @extend .page-section;
+
+}
+
+article.trails {
+  @extend .page-section;
+  .col-content {
+    margin-top: 4rem;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+article.colorwar {
+  @extend .page-section;
+
+}
+
+article.schedule {
+  @extend .page-section;
+
+}
+
+article.faq {
+  @extend .page-section;
+  h5 {
+    margin-top: 4rem;
+  }
+  p {
+    margin-top: 2rem;
+  }
+}
+
+article.sponsors {
+  @extend .page-section;
+
+}
+
+article.footer {
+  @extend .page-section;
+
 }
