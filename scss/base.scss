@@ -12,17 +12,43 @@
 }
 
 html {
-  font-size: 62.5%;
+  // Extra small devices (portrait phones, less than 576px)
+  @media (max-width: 575.98px) {
+    font-size: 55%;
+  }
+  // Small devices (landscape phones, 576px and up)
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    font-size: 58%;
+  }
+  // Medium devices (tablets, 768px and up)
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    font-size: 60%;
+  }
+  // Large devices (desktops, 992px and up)
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    font-size: 62.5%;
+  }
+  // Extra large devices (large desktops, 1200px and up)
+  @media (min-width: 1200px) {
+    font-size: 62.5%;
+
+  }
 }
+
 
 body {
   font-size: 1.8rem;
   font-family: Avenir;
   line-height: 1.5;
+  overflow-x: hidden !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
   font-family: Aleo;
   font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+  line-height: 1.5;
 }

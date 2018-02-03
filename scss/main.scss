@@ -10,6 +10,14 @@ a {
   }
 }
 
+img.icon {
+  width: 4rem;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: pixelated;
+}
 
 a.bp-btn {
   color: white;
@@ -40,7 +48,10 @@ a.bp-btn {
 }
 
 article.hero {
-  padding: 16rem 1.5rem;
+  padding: 14rem 1.5rem 20rem;
+  background-image: url('../img/hero.jpg');
+  background-size: cover;
+  background-position: bottom;
   .content {
     text-align: center;
     h1 {
@@ -103,7 +114,25 @@ article.hero {
 }
 
 .page-section {
-  padding: 8rem 0rem;
+  position: relative;
+  padding: 12rem 0rem;
+  .trail {
+    position: absolute;
+    z-index: 99;
+    top: -10rem;
+    width: 50rem;
+    max-width: 48%;
+    // height: 10rem;
+    &.left {
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1) rotate(-10deg);
+      right: 50%;
+    }
+    &.right {
+      transform: rotate(-10deg);
+      left: 50%;
+    }
+  }
   h2 {
     font-size: 2.4rem;
     margin-bottom: 2rem;
@@ -139,7 +168,9 @@ article.hero {
 
 article.intro {
   @extend .page-section;
-
+  @media (max-width: 767.98px) {
+    text-align: center;
+  }
 }
 
 article.trails {
@@ -148,12 +179,19 @@ article.trails {
     margin-top: 4rem;
     padding-left: 2rem;
     padding-right: 2rem;
+    .icon {
+      margin-top: 4rem;
+      margin-bottom: 2rem;
+    }
   }
 }
 
 article.colorwar {
   @extend .page-section;
-
+  .icon {
+    width: 8rem;
+    margin-bottom: 4rem;
+  }
 }
 
 article.schedule {
@@ -178,5 +216,35 @@ article.sponsors {
 
 article.footer {
   @extend .page-section;
+  .social-icons {
+    a {
+      margin-left: 2rem;
+      &:first-child {
+        margin-left: 0;
+      }
+      .icon {
+        transition: ease all .2s;
+        margin-top: 4rem;
+        margin-bottom: 2rem;
+        width: 4rem;
+      }
+      &:hover {
+        .icon {
+          opacity: .7;
+        }
+      }
+    }
+  }
+}
 
+div.separator {
+  height: 16rem;
+  background-repeat: repeat-x;
+  background-size: cover;
+  &.light-sky {
+    background-image: url('../img/testx.jpg');
+  }
+  &.dark-sky {
+    background-image: url('../img/testx2.jpg');
+  }
 }
