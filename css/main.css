@@ -100,10 +100,17 @@ article.hero {
       color: #7F6C5F; }
     article.hero .content h1, article.hero .content p {
       margin-bottom: 2rem; }
-    article.hero .content img.logo {
-      width: 28rem;
-      height: 28rem;
-      margin-bottom: 1rem; }
+    article.hero .content .logo-box {
+      position: relative; }
+      article.hero .content .logo-box img.fire {
+        position: absolute;
+        width: 20rem;
+        z-index: 12;
+        transform: translateX(3.5rem) translateY(-5rem); }
+      article.hero .content .logo-box img.logo {
+        width: 28rem;
+        height: 28rem;
+        margin-bottom: 1rem; }
   article.hero section.top {
     position: absolute;
     display: flex;

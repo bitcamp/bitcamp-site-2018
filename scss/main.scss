@@ -75,10 +75,20 @@ article.hero {
     h1, p {
       margin-bottom: 2rem;
     }
-    img.logo {
-      width: 28rem;
-      height: 28rem;
-      margin-bottom: 1rem;
+    .logo-box {
+      position: relative;
+      // Get ready for this hardcoded fire gif beauty :')
+      img.fire {
+        position: absolute;
+        width: 20rem;
+        z-index: 12;
+        transform: translateX(3.5rem) translateY(-5rem);
+      }
+      img.logo {
+        width: 28rem;
+        height: 28rem;
+        margin-bottom: 1rem;
+      }
     }
   }
   section.top {
