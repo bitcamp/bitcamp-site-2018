@@ -183,6 +183,28 @@ article.colorwar .icon {
   width: 8rem;
   margin-bottom: 4rem; }
 
+article.schedule .bp-btn {
+  min-width: 20rem; }
+
+article.schedule p {
+  margin-bottom: 4rem; }
+
+article.schedule h4 {
+  text-align: center;
+  margin-top: 8rem;
+  margin-bottom: 4rem; }
+
+article.schedule .schedule-table {
+  margin-top: 4rem;
+  text-align: left;
+  width: 100%; }
+  article.schedule .schedule-table th, article.schedule .schedule-table td {
+    padding-right: 1rem;
+    padding-bottom: .8rem; }
+  article.schedule .schedule-table th {
+    color: #CBF2FF;
+    font-weight: bold; }
+
 article.faq h5 {
   margin-top: 4rem; }
 

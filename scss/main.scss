@@ -197,7 +197,31 @@ article.colorwar {
 
 article.schedule {
   @extend .page-section;
-
+  .bp-btn {
+    min-width: 20rem;
+    // margin-left: .8rem;
+  }
+  p {
+    margin-bottom: 4rem;
+  }
+  h4 {
+    text-align: center;
+    margin-top: 8rem;
+    margin-bottom: 4rem;
+  }
+  .schedule-table {
+    margin-top: 4rem;
+    text-align: left;
+    width: 100%;
+    th, td {
+      padding-right: 1rem;
+      padding-bottom: .8rem;
+    }
+    th {
+      color: $bp-sky-blue;
+      font-weight: bold;
+    }
+  }
 }
 
 article.faq {
