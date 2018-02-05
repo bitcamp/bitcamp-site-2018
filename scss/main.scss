@@ -49,6 +49,7 @@ a.bp-btn {
 
 article.hero {
   padding: 14rem 1.5rem 20rem;
+  margin-bottom: -.1rem; // gap glitch fix
   background-image: url('../img/hero.jpg');
   background-size: cover;
   background-position: bottom;
@@ -239,6 +240,8 @@ article.footer {
 
 div.separator {
   height: 16rem;
+  margin-top: -.1rem;
+  margin-bottom: -.1rem;
   background-repeat: repeat-x;
   background-size: cover;
   &.light-sky {
