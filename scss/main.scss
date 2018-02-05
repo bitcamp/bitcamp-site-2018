@@ -44,20 +44,19 @@ a.bp-btn {
   &.orange {
     background-color: $bp-bitcamp-orange;
     &:hover {
-      // TODO
-      background-color: purple;
+      filter: brightness(140%);
     }
   }
   &.blue {
     background-color: $bp-medium-blue;
     &:hover {
-      background-color: purple;
+      filter: brightness(140%);
     }
   }
   &.brown {
     background-color: $bp-dark-brown;
     &:hover {
-      background-color: purple;
+      filter: brightness(140%);
     }
   }
   &.lg {

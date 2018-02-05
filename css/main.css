@@ -79,15 +79,15 @@ a.bp-btn {
   a.bp-btn.orange {
     background-color: #FF6F3F; }
     a.bp-btn.orange:hover {
-      background-color: purple; }
+      filter: brightness(140%); }
   a.bp-btn.blue {
     background-color: #528CA5; }
     a.bp-btn.blue:hover {
-      background-color: purple; }
+      filter: brightness(140%); }
   a.bp-btn.brown {
     background-color: #7F6C5F; }
     a.bp-btn.brown:hover {
-      background-color: purple; }
+      filter: brightness(140%); }
   a.bp-btn.lg {
     padding: 1.2rem 3.6rem; }
   a.bp-btn:hover {
