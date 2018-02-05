@@ -9,6 +9,7 @@
   left:4rem;
   top:0;
   width:10%;
+  transition: ease all .2s;
   z-index:10000
 }
 
@@ -33,7 +34,7 @@ img.icon {
 a.bp-btn {
   color: white;
   font-size: 1.6rem;
-  padding: 1rem 1.8rem;
+  padding: 1.2rem 1.8rem;
   font-family: Aleo;
   font-weight: bold;
   transition: ease all .2s;
@@ -42,18 +43,29 @@ a.bp-btn {
   text-decoration: none;
   &.orange {
     background-color: $bp-bitcamp-orange;
+    &:hover {
+      // TODO
+      background-color: purple;
+    }
   }
   &.blue {
     background-color: $bp-medium-blue;
+    &:hover {
+      background-color: purple;
+    }
   }
   &.brown {
     background-color: $bp-dark-brown;
+    &:hover {
+      background-color: purple;
+    }
   }
   &.lg {
-    padding: 1rem 3.6rem;
+    padding: 1.2rem 3.6rem;
   }
   &:hover {
-    opacity: .8;
+    opacity: 1;
+    // opacity: .8;
   }
   // border-top: 2px soid $bp-yellow-orange;
 }
@@ -61,7 +73,7 @@ a.bp-btn {
 article.hero {
   padding: 14rem 1.5rem 20rem;
   margin-bottom: -.1rem; // gap glitch fix
-  background-image: url('../img/hero.jpg');
+  background-image: url('../img/herov6.jpg');
   background-size: cover;
   background-position: bottom;
   .content {
@@ -75,10 +87,20 @@ article.hero {
     h1, p {
       margin-bottom: 2rem;
     }
-    img.logo {
-      width: 28rem;
-      height: 28rem;
-      margin-bottom: 1rem;
+    .logo-box {
+      position: relative;
+      // Get ready for this hardcoded fire gif beauty :')
+      img.fire {
+        position: absolute;
+        width: 20rem;
+        z-index: 12;
+        transform: translateX(3.5rem) translateY(-5rem);
+      }
+      img.logo {
+        width: 28rem;
+        height: 28rem;
+        margin-bottom: 1rem;
+      }
     }
   }
   section.top {
@@ -132,7 +154,7 @@ article.hero {
     position: absolute;
     z-index: 99;
     top: -10rem;
-    width: 50rem;
+    // width: 50rem;
     max-width: 48%;
     // height: 10rem;
     &.left {
