@@ -152,7 +152,6 @@ article.hero {
     position: absolute;
     z-index: 99;
     top: -10rem;
-    width: 50rem;
     max-width: 48%; }
     .page-section .trail.left, article.intro .trail.left, article.trails .trail.left, article.colorwar .trail.left, article.schedule .trail.left, article.faq .trail.left, article.sponsors .trail.left, article.footer .trail.left {
       -webkit-transform: scaleX(-1);
