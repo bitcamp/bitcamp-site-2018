@@ -4,11 +4,11 @@ http://2018.bit.camp/
 
 ## Quick Start
 
-'''
+~~~~
 $ npm install
 $ npm run server
 $ npm run watch-scss
-'''
+~~~~
 
 ## Full Guide
 
