@@ -210,6 +210,9 @@ article.intro {
 article.trails {
   @extend .page-section;
   .col-content {
+    @media (max-width: 575.98px) {
+      text-align: center;
+    }
     margin-top: 4rem;
     padding-left: 2rem;
     padding-right: 2rem;
