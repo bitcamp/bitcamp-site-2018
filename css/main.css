@@ -69,7 +69,7 @@ img.icon {
 a.bp-btn {
   color: white;
   font-size: 1.6rem;
-  padding: 1rem 1.8rem;
+  padding: 1.2rem 1.8rem;
   font-family: Aleo;
   font-weight: bold;
   transition: ease all .2s;
@@ -83,7 +83,7 @@ a.bp-btn {
   a.bp-btn.brown {
     background-color: #7F6C5F; }
   a.bp-btn.lg {
-    padding: 1rem 3.6rem; }
+    padding: 1.2rem 3.6rem; }
   a.bp-btn:hover {
     opacity: .8; }
 

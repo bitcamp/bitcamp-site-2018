@@ -34,7 +34,7 @@ img.icon {
 a.bp-btn {
   color: white;
   font-size: 1.6rem;
-  padding: 1rem 1.8rem;
+  padding: 1.2rem 1.8rem;
   font-family: Aleo;
   font-weight: bold;
   transition: ease all .2s;
@@ -51,7 +51,7 @@ a.bp-btn {
     background-color: $bp-dark-brown;
   }
   &.lg {
-    padding: 1rem 3.6rem;
+    padding: 1.2rem 3.6rem;
   }
   &:hover {
     opacity: .8;
