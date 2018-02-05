@@ -43,18 +43,29 @@ a.bp-btn {
   text-decoration: none;
   &.orange {
     background-color: $bp-bitcamp-orange;
+    &:hover {
+      // TODO
+      background-color: purple;
+    }
   }
   &.blue {
     background-color: $bp-medium-blue;
+    &:hover {
+      background-color: purple;
+    }
   }
   &.brown {
     background-color: $bp-dark-brown;
+    &:hover {
+      background-color: purple;
+    }
   }
   &.lg {
     padding: 1.2rem 3.6rem;
   }
   &:hover {
-    opacity: .8;
+    opacity: 1;
+    // opacity: .8;
   }
   // border-top: 2px soid $bp-yellow-orange;
 }
@@ -62,7 +73,7 @@ a.bp-btn {
 article.hero {
   padding: 14rem 1.5rem 20rem;
   margin-bottom: -.1rem; // gap glitch fix
-  background-image: url('../img/hero.jpg');
+  background-image: url('../img/herov6.jpg');
   background-size: cover;
   background-position: bottom;
   .content {
