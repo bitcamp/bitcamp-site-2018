@@ -40,6 +40,16 @@ h1, h2, h3, h4, h5, h6 {
 h1, h2, h3, h4, h5, h6, p {
   line-height: 1.5; }
 
+#mlh-trust-badge {
+  display: block;
+  max-width: 8rem;
+  min-width: 4em;
+  position: absolute;
+  left: 4rem;
+  top: 0;
+  width: 10%;
+  z-index: 10000; }
+
 a {
   color: #FF6F3F; }
   a:hover {
