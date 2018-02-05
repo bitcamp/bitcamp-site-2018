@@ -9,6 +9,9 @@ $ npm install
 $ npm run server
 $ npm run watch-scss
 ~~~~
+Website is running at localhost:4000. Styles are being preprocessed from `scss/main.scss`.
+
+See full guide below for more information.
 
 ## Full Guide
 
