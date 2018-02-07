@@ -43,14 +43,21 @@ a.bp-btn {
   background-color: purple;
   text-decoration: none;
   border-radius: 2px;
+  border-bottom: 3px solid darken(purple, 10);
   &.orange {
     background-color: $bp-bitcamp-orange;
+    border-bottom: 3px solid darken($bp-bitcamp-orange, 10);
+
   }
   &.blue {
     background-color: $bp-medium-blue;
+    border-bottom: 3px solid darken($bp-medium-blue, 10);
+
   }
   &.brown {
     background-color: $bp-dark-brown;
+    border-bottom: 3px solid darken($bp-dark-brown, 10);
+
   }
   &.lg {
     padding: 1.2rem 3.6rem;
@@ -58,6 +65,10 @@ a.bp-btn {
   &:hover {
     opacity: 1;
     filter: brightness(140%);
+  }
+  &:active {
+    opacity: 1;
+    filter: brightness(90%);
   }
   // border-top: 2px soid $bp-yellow-orange;
 }
@@ -153,20 +164,20 @@ article.hero {
         left: 10%;
         top: -2rem;
         right: 0;
-        border-left: 4px solid $bp-dark-brown;
-        border-right: 4px solid $bp-dark-brown;
+        border-left: 4px solid darken($bp-dark-brown, 10);
+        border-right: 4px solid darken($bp-dark-brown, 10);
         background-color: transparent;
         width: 80%;
         height: 2rem;
       }
       &.orange {
         &::before {
-          border-color: $bp-bitcamp-orange;
+          border-color: darken($bp-bitcamp-orange, 10);
         }
       }
       &.blue {
         &::before {
-          border-color: $bp-medium-blue;
+          border-color: darken($bp-medium-blue, 10);
         }
       }
     }
@@ -325,12 +336,12 @@ article.footer {
   @extend .page-section;
   .social-icons {
     a {
+      transition: ease all .2s;
       margin-left: 2rem;
       &:first-child {
         margin-left: 0;
       }
       .icon {
-        transition: ease all .2s;
         margin-top: 4rem;
         margin-bottom: 2rem;
         width: 4rem;

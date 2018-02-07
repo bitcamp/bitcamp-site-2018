@@ -77,18 +77,25 @@ a.bp-btn {
   text-transform: uppercase;
   background-color: purple;
   text-decoration: none;
-  border-radius: 2px; }
+  border-radius: 2px;
+  border-bottom: 3px solid #4d004d; }
   a.bp-btn.orange {
-    background-color: #FF6F3F; }
+    background-color: #FF6F3F;
+    border-bottom: 3px solid #ff490c; }
   a.bp-btn.blue {
-    background-color: #528CA5; }
+    background-color: #528CA5;
+    border-bottom: 3px solid #416f83; }
   a.bp-btn.brown {
-    background-color: #7F6C5F; }
+    background-color: #7F6C5F;
+    border-bottom: 3px solid #625349; }
   a.bp-btn.lg {
     padding: 1.2rem 3.6rem; }
   a.bp-btn:hover {
     opacity: 1;
     filter: brightness(140%); }
+  a.bp-btn:active {
+    opacity: 1;
+    filter: brightness(90%); }
 
 article.mobile-top {
   background-color: #1A2E33;
@@ -165,15 +172,15 @@ article.hero {
         left: 10%;
         top: -2rem;
         right: 0;
-        border-left: 4px solid #7F6C5F;
-        border-right: 4px solid #7F6C5F;
+        border-left: 4px solid #625349;
+        border-right: 4px solid #625349;
         background-color: transparent;
         width: 80%;
         height: 2rem; }
       article.hero section.top a.orange::before {
-        border-color: #FF6F3F; }
+        border-color: #ff490c; }
       article.hero section.top a.blue::before {
-        border-color: #528CA5; }
+        border-color: #416f83; }
 
 .page-section, article.intro, article.trails, article.colorwar, article.schedule, article.faq, article.sponsors, article.footer {
   position: relative;
@@ -283,11 +290,11 @@ article.faq p {
   margin-top: 2rem; }
 
 article.footer .social-icons a {
+  transition: ease all .2s;
   margin-left: 2rem; }
   article.footer .social-icons a:first-child {
     margin-left: 0; }
   article.footer .social-icons a .icon {
-    transition: ease all .2s;
     margin-top: 4rem;
     margin-bottom: 2rem;
     width: 4rem; }
