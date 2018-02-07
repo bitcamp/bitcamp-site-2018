@@ -7,10 +7,10 @@
   min-width:4em;
   position:absolute;
   left:4rem;
-  top:0;
+  top: -0.1rem;
   width:10%;
   transition: ease all .2s;
-  z-index:10000
+  z-index: 100;
 }
 
 a {
@@ -18,7 +18,8 @@ a {
   &:hover {
     text-decoration: none;
     color: $bp-bitcamp-orange;
-    opacity: .7;
+    opacity: 1;
+    filter: brightness(140%);
   }
 }
 
@@ -43,36 +44,60 @@ a.bp-btn {
   text-decoration: none;
   &.orange {
     background-color: $bp-bitcamp-orange;
-    &:hover {
-      // TODO
-      background-color: purple;
-    }
   }
   &.blue {
     background-color: $bp-medium-blue;
-    &:hover {
-      background-color: purple;
-    }
   }
   &.brown {
     background-color: $bp-dark-brown;
-    &:hover {
-      background-color: purple;
-    }
   }
   &.lg {
     padding: 1.2rem 3.6rem;
   }
   &:hover {
     opacity: 1;
-    // opacity: .8;
+    filter: brightness(140%);
   }
   // border-top: 2px soid $bp-yellow-orange;
 }
 
+article.mobile-top {
+  background-color: $bp-midnight-blue;
+  color: white;
+  position: relative;
+  z-index: 999;
+  height: 22rem;
+  transition: ease height .3s;
+  .links {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around;
+  }
+  a {
+    transition: ease all .3s;
+    text-align: center;
+    display: block;
+    opacity: 1;
+    // margin: 0rem 1.5rem 2rem;
+  }
+  &.hidden {
+    height: 0;
+    z-index: -10;
+    a {
+      opacity: 0;
+    }
+  }
+}
+
+article.page-body {
+  position: relative;
+}
+
 article.hero {
   padding: 14rem 1.5rem 20rem;
-  margin-bottom: -.1rem; // gap glitch fix
+  margin-bottom: -.2rem; // gap glitch fix
   background-image: url('../img/herov6.jpg');
   background-size: cover;
   background-position: bottom;
@@ -210,6 +235,9 @@ article.intro {
 article.trails {
   @extend .page-section;
   .col-content {
+    @media (max-width: 767.98px) {
+      text-align: center;
+    }
     margin-top: 4rem;
     padding-left: 2rem;
     padding-right: 2rem;
@@ -288,7 +316,7 @@ article.footer {
       }
       &:hover {
         .icon {
-          opacity: .7;
+          // opacity: .7;
         }
       }
     }
@@ -297,8 +325,8 @@ article.footer {
 
 div.separator {
   height: 16rem;
-  margin-top: -.1rem;
-  margin-bottom: -.1rem;
+  margin-top: -.2rem;
+  margin-bottom: -.2rem;
   background-repeat: repeat-x;
   background-size: cover;
   &.light-sky {
