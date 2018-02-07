@@ -8,10 +8,7 @@
 
 @media (max-width: 575.98px) {
   html {
-    font-size: 55%; }
-
-  .trail-content {
-    text-align: center; } }
+    font-size: 55%; } }
 
 @media (min-width: 576px) and (max-width: 767.98px) {
   html {
@@ -223,6 +220,22 @@ article.hero {
   article.intro {
     text-align: center; } }
 
+article.intro .img-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; }
+
+article.intro img {
+  width: 100%;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  -ms-interpolation-mode: nearest-neighbor;
+  image-rendering: pixelated; }
+  @media (max-width: 767.98px) {
+    article.intro img {
+      margin-top: 8rem; } }
+
 article.trails .col-content {
   margin-top: 4rem;
   padding-left: 2rem;
@@ -234,9 +247,14 @@ article.trails .col-content {
     margin-top: 4rem;
     margin-bottom: 2rem; }
 
-article.colorwar .icon {
-  width: 8rem;
-  margin-bottom: 4rem; }
+article.colorwar {
+  background-image: url("../img/colorwarbg.jpg");
+  background-size: cover;
+  background-position: bottom;
+  padding-bottom: 28rem; }
+  article.colorwar .icon {
+    width: 8rem;
+    margin-bottom: 4rem; }
 
 article.schedule .bp-btn {
   min-width: 20rem; }
@@ -283,6 +301,8 @@ div.separator {
   background-repeat: repeat-x;
   background-size: cover; }
   div.separator.light-sky {
+    background-color: #1A2E33;
     background-image: url("../img/testx.jpg"); }
   div.separator.dark-sky {
+    background-color: #22363c;
     background-image: url("../img/testx2.jpg"); }
