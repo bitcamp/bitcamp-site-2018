@@ -306,9 +306,16 @@ article.schedule {
     margin-top: 4rem;
     text-align: left;
     width: 100%;
+    tr {
+      border-bottom: 2px solid #394a50;
+      &.heading {
+        border: none;
+      }
+    }
     th, td {
-      padding-right: 1rem;
-      padding-bottom: .8rem;
+      padding: 1rem;
+      // padding-right: 1rem;
+      // padding-bottom: .8rem;
     }
     th {
       color: $bp-sky-blue;

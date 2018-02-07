@@ -276,9 +276,12 @@ article.schedule .schedule-table {
   margin-top: 4rem;
   text-align: left;
   width: 100%; }
+  article.schedule .schedule-table tr {
+    border-bottom: 2px solid #394a50; }
+    article.schedule .schedule-table tr.heading {
+      border: none; }
   article.schedule .schedule-table th, article.schedule .schedule-table td {
-    padding-right: 1rem;
-    padding-bottom: .8rem; }
+    padding: 1rem; }
   article.schedule .schedule-table th {
     color: #CBF2FF;
     font-weight: bold; }
