@@ -46,10 +46,10 @@ h1, h2, h3, h4, h5, h6, p {
   min-width: 4em;
   position: absolute;
   left: 4rem;
-  top: 0;
+  top: -0.1rem;
   width: 10%;
   transition: ease all .2s;
-  z-index: 10000; }
+  z-index: 100; }
 
 a {
   color: #FF6F3F; }
@@ -88,6 +88,33 @@ a.bp-btn {
   a.bp-btn:hover {
     opacity: 1;
     filter: brightness(140%); }
+
+article.mobile-top {
+  background-color: #1A2E33;
+  color: white;
+  position: relative;
+  z-index: 999;
+  height: 22rem;
+  transition: ease height .3s; }
+  article.mobile-top .links {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-around; }
+  article.mobile-top a {
+    transition: ease all .3s;
+    text-align: center;
+    display: block;
+    opacity: 1; }
+  article.mobile-top.hidden {
+    height: 0;
+    z-index: -10; }
+    article.mobile-top.hidden a {
+      opacity: 0; }
+
+article.page-body {
+  position: relative; }
 
 article.hero {
   padding: 14rem 1.5rem 20rem;
