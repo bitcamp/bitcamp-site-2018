@@ -146,14 +146,12 @@ article.hero {
         margin-bottom: 1rem; }
   article.hero section.top {
     position: absolute;
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-end;
     top: 0;
-    right: 0;
     width: 100%;
+    right: 0;
     z-index: 10;
-    padding: 2rem; }
+    padding: 2rem;
+    text-align: right; }
     article.hero section.top a {
       position: relative;
       top: -.5rem;
