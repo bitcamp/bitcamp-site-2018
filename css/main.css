@@ -76,7 +76,8 @@ a.bp-btn {
   transition: ease all .2s;
   text-transform: uppercase;
   background-color: purple;
-  text-decoration: none; }
+  text-decoration: none;
+  border-radius: 2px; }
   a.bp-btn.orange {
     background-color: #FF6F3F; }
   a.bp-btn.blue {
@@ -101,12 +102,14 @@ article.mobile-top {
     display: flex;
     flex-direction: column;
     height: 100%;
-    justify-content: space-around; }
+    justify-content: space-between;
+    align-items: center; }
   article.mobile-top a {
     transition: ease all .3s;
     text-align: center;
     display: block;
-    opacity: 1; }
+    opacity: 1;
+    width: 100%; }
   article.mobile-top.hidden {
     height: 0;
     z-index: -10; }
