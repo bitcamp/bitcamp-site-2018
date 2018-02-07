@@ -18,7 +18,8 @@ a {
   &:hover {
     text-decoration: none;
     color: $bp-bitcamp-orange;
-    opacity: .7;
+    opacity: 1;
+    filter: brightness(140%);
   }
 }
 
@@ -43,28 +44,19 @@ a.bp-btn {
   text-decoration: none;
   &.orange {
     background-color: $bp-bitcamp-orange;
-    &:hover {
-      filter: brightness(140%);
-    }
   }
   &.blue {
     background-color: $bp-medium-blue;
-    &:hover {
-      filter: brightness(140%);
-    }
   }
   &.brown {
     background-color: $bp-dark-brown;
-    &:hover {
-      filter: brightness(140%);
-    }
   }
   &.lg {
     padding: 1.2rem 3.6rem;
   }
   &:hover {
     opacity: 1;
-    // opacity: .8;
+    filter: brightness(140%);
   }
   // border-top: 2px soid $bp-yellow-orange;
 }
@@ -287,7 +279,7 @@ article.footer {
       }
       &:hover {
         .icon {
-          opacity: .7;
+          // opacity: .7;
         }
       }
     }
