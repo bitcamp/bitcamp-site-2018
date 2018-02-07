@@ -221,7 +221,7 @@ article.trails .col-content {
   margin-top: 4rem;
   padding-left: 2rem;
   padding-right: 2rem; }
-  @media (max-width: 575.98px) {
+  @media (max-width: 767.98px) {
     article.trails .col-content {
       text-align: center; } }
   article.trails .col-content .icon {
