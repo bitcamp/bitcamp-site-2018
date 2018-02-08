@@ -192,16 +192,25 @@ article.hero {
     z-index: 99;
     top: -10rem;
     // width: 50rem;
-    max-width: 48%;
+    max-width: 36%;
     // height: 10rem;
     &.left {
-      -webkit-transform: scaleX(-1);
-      transform: scaleX(-1) rotate(-10deg);
+      -webkit-transform: rotate(-10deg);
+      transform: rotate(-10deg);
       right: 50%;
+      &.flipped {
+        -webkit-transform: scaleX(-1) rotate(-10deg);
+        transform: scaleX(-1) rotate(-10deg);
+      }
     }
     &.right {
-      transform: rotate(-10deg);
+      -webkit-transform: rotate(-12deg);
+      transform: rotate(-12deg);
       left: 50%;
+      &.flipped {
+        -webkit-transform: scaleY(-1) rotate(-12deg);
+        transform: scaleY(-1) rotate(-12deg);
+      }
     }
   }
   h2 {
