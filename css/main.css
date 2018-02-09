@@ -204,6 +204,26 @@ article.hero {
       .page-section .trail.right.flipped, article.intro .trail.right.flipped, article.trails .trail.right.flipped, article.colorwar .trail.right.flipped, article.schedule .trail.right.flipped, article.faq .trail.right.flipped, article.sponsors .trail.right.flipped, article.footer .trail.right.flipped {
         -webkit-transform: scaleY(-1) rotate(-12deg);
         transform: scaleY(-1) rotate(-12deg); }
+  @media (max-width: 767.98px) {
+    .page-section .trail, article.intro .trail, article.trails .trail, article.colorwar .trail, article.schedule .trail, article.faq .trail, article.sponsors .trail, article.footer .trail {
+      position: absolute;
+      z-index: 99;
+      top: -10rem;
+      max-width: 36%; }
+      .page-section .trail.left, article.intro .trail.left, article.trails .trail.left, article.colorwar .trail.left, article.schedule .trail.left, article.faq .trail.left, article.sponsors .trail.left, article.footer .trail.left {
+        -webkit-transform: scaleX(2) scaleY(2) rotate(-20deg);
+        transform: rotate(-20deg) scaleX(2) scaleY(2);
+        right: 30%; }
+        .page-section .trail.left.flipped, article.intro .trail.left.flipped, article.trails .trail.left.flipped, article.colorwar .trail.left.flipped, article.schedule .trail.left.flipped, article.faq .trail.left.flipped, article.sponsors .trail.left.flipped, article.footer .trail.left.flipped {
+          -webkit-transform: scaleX(-2) scaleY(2) rotate(-20deg);
+          transform: scaleX(-2) scaleY(2) rotate(-20deg); }
+      .page-section .trail.right, article.intro .trail.right, article.trails .trail.right, article.colorwar .trail.right, article.schedule .trail.right, article.faq .trail.right, article.sponsors .trail.right, article.footer .trail.right {
+        -webkit-transform: scaleY(-2) scaleX(2) rotate(-22deg);
+        transform: scaleY(-2) scaleX(2) rotate(-22deg);
+        left: 30%; }
+        .page-section .trail.right.flipped, article.intro .trail.right.flipped, article.trails .trail.right.flipped, article.colorwar .trail.right.flipped, article.schedule .trail.right.flipped, article.faq .trail.right.flipped, article.sponsors .trail.right.flipped, article.footer .trail.right.flipped {
+          -webkit-transform: scaleX(2) scaleY(2) rotate(-22deg);
+          transform: rotate(-22deg) scaleX(2) scaleY(2); } }
   .page-section h2, article.intro h2, article.trails h2, article.colorwar h2, article.schedule h2, article.faq h2, article.sponsors h2, article.footer h2 {
     font-size: 2.4rem;
     margin-bottom: 2rem; }
