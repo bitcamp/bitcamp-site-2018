@@ -1,12 +1,3 @@
-<!--
-Redirects all traffic to any paths within bit.camp to bit.camp
-Inspiration from https://github.com/rafrex/spa-github-pages
--->
-<script type="text/javascript">
-  var l = window.location;
-  var redirectedHostname = 'bit.camp';
-  l.replace(
-    l.protocol + '//' + redirectedHostname +
-    l.pathname.split('/').slice(0, l.pathname.length).join('/')
-  );
-</script>
+<head>
+  <meta http-equiv="refresh" content="0; URL='http://bit.camp'" />
+</head>
