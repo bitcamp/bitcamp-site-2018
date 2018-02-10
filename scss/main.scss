@@ -214,6 +214,9 @@ article.hero {
     }
   }
   @media (max-width: 767.98px) {
+    .first.trail {
+      left: 14%;
+    }
     .trail {
       position: absolute;
       z-index: 99;
@@ -436,4 +439,3 @@ div.separator {
 .container {
   position: relative;
 }
-

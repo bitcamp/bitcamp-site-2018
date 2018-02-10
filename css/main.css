@@ -188,8 +188,7 @@ article.hero {
   .page-section .trail, article.intro .trail, article.trails .trail, article.colorwar .trail, article.schedule .trail, article.faq .trail, article.sponsors .trail, article.footer .trail {
     position: absolute;
     z-index: 99;
-    top: -22rem;
-    /*max-width: 36%;*/ }
+    top: -22rem; }
     .page-section .trail.left, article.intro .trail.left, article.trails .trail.left, article.colorwar .trail.left, article.schedule .trail.left, article.faq .trail.left, article.sponsors .trail.left, article.footer .trail.left {
       -webkit-transform: rotate(-10deg);
       transform: rotate(-10deg);
@@ -205,11 +204,12 @@ article.hero {
         -webkit-transform: scaleY(-1) rotate(-12deg);
         transform: scaleY(-1) rotate(-12deg); }
   @media (max-width: 767.98px) {
+    .page-section .first.trail, article.intro .first.trail, article.trails .first.trail, article.colorwar .first.trail, article.schedule .first.trail, article.faq .first.trail, article.sponsors .first.trail, article.footer .first.trail {
+      left: 14%; }
     .page-section .trail, article.intro .trail, article.trails .trail, article.colorwar .trail, article.schedule .trail, article.faq .trail, article.sponsors .trail, article.footer .trail {
       position: absolute;
       z-index: 99;
-      top: -22rem;
-      /*max-width: 36%;*/ }
+      top: -22rem; }
       .page-section .trail.left, article.intro .trail.left, article.trails .trail.left, article.colorwar .trail.left, article.schedule .trail.left, article.faq .trail.left, article.sponsors .trail.left, article.footer .trail.left {
         -webkit-transform: scaleX(2) scaleY(2) rotate(-20deg);
         transform: rotate(-20deg) scaleX(2) scaleY(2);
@@ -342,27 +342,17 @@ div.separator {
     background-color: #22363c;
     background-image: url("../img/testx2.jpg"); }
 
-
 .trail_visible .trail_path {
-  stroke-dashoffset: 0;
-}
+  stroke-dashoffset: 0; }
 
-.trail_path{
-  fill:none;
-  stroke:#CDECF9;
-  stroke-width:7;
+.trail_path {
+  fill: none;
+  stroke: #CDECF9;
+  stroke-width: 7;
   vector-effect: non-scaling-stroke;
-  stroke-dasharray:21.706,14.706,21.706,14.706,21.706,14.706,
-                   21.706,14.706,21.706,14.706,21.706,14.706,
-                   21.706,14.706,21.706,14.706,21.706,14.706,
-                   21.706,14.706,21.706,14.706,21.706,14.706,
-                   21.706,14.706,21.706,14.706,21.706,14.706,
-                   21.706,14.706,21.706,14.706,21.706,14.706,
-                   0,100000;
+  stroke-dasharray: 21.706,14.706,21.706,14.706,21.706,14.706, 21.706,14.706,21.706,14.706,21.706,14.706, 21.706,14.706,21.706,14.706,21.706,14.706, 21.706,14.706,21.706,14.706,21.706,14.706, 21.706,14.706,21.706,14.706,21.706,14.706, 21.706,14.706,21.706,14.706,21.706,14.706, 0,100000;
   stroke-dashoffset: 655.416;
-  transition: 2s;
-}
+  transition: 2s; }
 
 .container {
-  position: relative;
-}
+  position: relative; }
