@@ -343,13 +343,24 @@ div.separator {
     background-image: url("../img/testx2.jpg"); }
 
 
+.trail_visible .trail_path {
+  stroke-dashoffset: 0;
+}
 
 .trail_path{
   fill:none;
   stroke:#CDECF9;
   stroke-width:7;
-  stroke-dasharray:21.706,14.706;
   vector-effect: non-scaling-stroke;
+  stroke-dasharray:21.706,14.706,21.706,14.706,21.706,14.706,
+                   21.706,14.706,21.706,14.706,21.706,14.706,
+                   21.706,14.706,21.706,14.706,21.706,14.706,
+                   21.706,14.706,21.706,14.706,21.706,14.706,
+                   21.706,14.706,21.706,14.706,21.706,14.706,
+                   21.706,14.706,21.706,14.706,21.706,14.706,
+                   0,100000;
+  stroke-dashoffset: 655.416;
+  transition: 2s;
 }
 
 .container {
