@@ -188,8 +188,8 @@ article.hero {
   .page-section .trail, article.intro .trail, article.trails .trail, article.colorwar .trail, article.schedule .trail, article.faq .trail, article.sponsors .trail, article.footer .trail {
     position: absolute;
     z-index: 99;
-    top: -10rem;
-    max-width: 36%; }
+    top: -22rem;
+    /*max-width: 36%;*/ }
     .page-section .trail.left, article.intro .trail.left, article.trails .trail.left, article.colorwar .trail.left, article.schedule .trail.left, article.faq .trail.left, article.sponsors .trail.left, article.footer .trail.left {
       -webkit-transform: rotate(-10deg);
       transform: rotate(-10deg);
@@ -208,8 +208,8 @@ article.hero {
     .page-section .trail, article.intro .trail, article.trails .trail, article.colorwar .trail, article.schedule .trail, article.faq .trail, article.sponsors .trail, article.footer .trail {
       position: absolute;
       z-index: 99;
-      top: -10rem;
-      max-width: 36%; }
+      top: -22rem;
+      /*max-width: 36%;*/ }
       .page-section .trail.left, article.intro .trail.left, article.trails .trail.left, article.colorwar .trail.left, article.schedule .trail.left, article.faq .trail.left, article.sponsors .trail.left, article.footer .trail.left {
         -webkit-transform: scaleX(2) scaleY(2) rotate(-20deg);
         transform: rotate(-20deg) scaleX(2) scaleY(2);
@@ -341,3 +341,17 @@ div.separator {
   div.separator.dark-sky {
     background-color: #22363c;
     background-image: url("../img/testx2.jpg"); }
+
+
+
+.trail_path{
+  fill:none;
+  stroke:#CDECF9;
+  stroke-width:7;
+  stroke-dasharray:21.706,14.706;
+  vector-effect: non-scaling-stroke;
+}
+
+.container {
+  position: relative;
+}
