@@ -190,9 +190,9 @@ article.hero {
   .trail {
     position: absolute;
     z-index: 99;
-    top: -10rem;
+    top: -22rem;
     // width: 50rem;
-    max-width: 36%;
+    //max-width: 36%;
     // height: 10rem;
     &.left {
       -webkit-transform: rotate(-10deg);
@@ -217,8 +217,8 @@ article.hero {
     .trail {
       position: absolute;
       z-index: 99;
-      top: -10rem;
-      max-width: 36%;
+      top: -22rem;
+      //max-width: 36%;
       &.left {
         -webkit-transform: scaleX(2) scaleY(2) rotate(-20deg);
         transform: rotate(-20deg) scaleX(2) scaleY(2);
@@ -411,4 +411,16 @@ div.separator {
     background-color: $bp-midnight-blue-light;
     background-image: url('../img/testx2.jpg');
   }
+}
+
+.trail_path{
+  fill:none;
+  stroke:#CDECF9;
+  stroke-width:7;
+  stroke-dasharray:21.706,14.706;
+  vector-effect: non-scaling-stroke;
+}
+
+.container {
+  position: relative;
 }
