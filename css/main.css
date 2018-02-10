@@ -348,11 +348,11 @@ div.separator {
 .trail_path {
   fill: none;
   stroke: #CDECF9;
-  stroke-width: 7;
+  stroke-width: 4;
   vector-effect: non-scaling-stroke;
   stroke-dasharray: 21.706,14.706,21.706,14.706,21.706,14.706, 21.706,14.706,21.706,14.706,21.706,14.706, 21.706,14.706,21.706,14.706,21.706,14.706, 21.706,14.706,21.706,14.706,21.706,14.706, 21.706,14.706,21.706,14.706,21.706,14.706, 21.706,14.706,21.706,14.706,21.706,14.706, 0,100000;
   stroke-dashoffset: 655.416;
-  transition: 2s; }
+  transition: 3s; }
 
 .container {
   position: relative; }
