@@ -6,25 +6,23 @@
   font-family: Aleo;
   src: url("../fonts/Aleo/Aleo-Regular.otf") format("opentype"); }
 
-@media (max-width: 575.98px) {
-  html {
-    font-size: 55%; } }
-
-@media (min-width: 576px) and (max-width: 767.98px) {
-  html {
-    font-size: 58%; } }
-
-@media (min-width: 768px) and (max-width: 991.98px) {
-  html {
-    font-size: 60%; } }
-
-@media (min-width: 992px) and (max-width: 1199.98px) {
-  html {
-    font-size: 62.5%; } }
-
-@media (min-width: 1200px) {
-  html {
-    font-size: 62.5%; } }
+html {
+  overflow-x: hidden; }
+  @media (max-width: 575.98px) {
+    html {
+      font-size: 55%; } }
+  @media (min-width: 576px) and (max-width: 767.98px) {
+    html {
+      font-size: 58%; } }
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    html {
+      font-size: 60%; } }
+  @media (min-width: 992px) and (max-width: 1199.98px) {
+    html {
+      font-size: 62.5%; } }
+  @media (min-width: 1200px) {
+    html {
+      font-size: 62.5%; } }
 
 body {
   font-size: 1.8rem;
