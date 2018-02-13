@@ -29,7 +29,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/main2.css">
     <link rel="shortcut icon" href="favicon.ico">
 
     <script type="application/ld+json">
@@ -115,8 +115,10 @@
 
       <div class="separator dark-sky"></div>
       <article class="trails medium" id="trails">
-        <img class="trail left flipped" src="img/trail.png" alt="">
         <div class="container">
+          <svg class="first trail" viewBox="-30 0 260 100" width="100%" height="16rem" preserveAspectRatio="none">
+            <path class="trail_path" d="M0.5,0.7c2.3,57.9 15.2,62.7 30.5,55.4S82.2-60.5,99.3,98.8"></path>
+          </svg>
           <div class="text-center">
             <h2>Explore Our New Trails</h2>
             <h3>
@@ -323,8 +325,10 @@
       <div class="separator light-sky"></div> -->
 
       <article class="faq dark" id="faq">
-        <img class="trail right flipped" src="img/trail.png" alt="">
         <div class="container">
+          <svg class="trail" viewBox="0 0 736.8 138.9" width="100%" height="24rem" preserveAspectRatio="none" style="top:-30rem">
+            <path class="trail_path" d="M528,0.7C517,38,474,64,415,64c-66,0-135,33-113,74.9"/>
+          </svg>
           <div class="text-center">
             <h2>FAQ</h2>
           </div>
@@ -402,8 +406,10 @@
 
 
       <article class="sponsors medium" id="sponsors">
-        <img class="trail right" src="img/trail.png" alt="">
         <div class="container">
+          <svg class="trail" viewBox="0 0 736.8 138.9" width="100%" height="24rem" preserveAspectRatio="none" style="top:-30rem">
+            <path class="trail_path" d="M528,0.7C517,38,495,79.1,382,68.9s-96,43.1-80,69.9"/>
+          </svg>
           <div class="text-center">
             <h2>Sponsors</h2>
             <h3>Interested in sponsoring us? <br>Send us an email at <a href="mailto:sponsorship@bit.camp">sponsorship@bit.camp</a>!</h3>
@@ -415,8 +421,10 @@
 
 
       <article class="footer dark">
-        <img class="trail left" src="img/trail.png" alt="">
         <div class="container">
+          <svg class="trail" viewBox="-180 0 500 100" width="100%" height="24rem" preserveAspectRatio="none" style="top:-30rem">
+            <path class="trail_path" d="M75.6,0c27,50-111,45.6-95.6,100"/""></path>
+          </svg>
           <div class="text-center">
             <h2>Feel free to <a href="mailto:hello@bit.camp">email</a> us or find us on:</h2>
             <div class="social-icons">
@@ -441,5 +449,36 @@
     </article>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="./js/main.js"></script>
+
+    <script type="text/javascript">
+  /**
+   * inViewport jQuery plugin by Roko C.B.
+   * http://stackoverflow.com/a/26831113/383904
+   * Returns a callback function with an argument holding
+   * the current amount of px an element is visible in viewport
+   * (The min returned value is 0 (element outside of viewport)
+   */
+  ;(function($, win) {
+    $.fn.inViewport = function(cb) {
+       return this.each(function(i,el) {
+         function visPx(){
+           var elH = $(el).outerHeight(),
+               H = $(win).height(),
+               r = el.getBoundingClientRect(), t=r.top, b=r.bottom;
+           return cb.call(el, Math.max(0, t>0? Math.min(elH, H-t) : (b<H?b:H)));
+         }
+         visPx();
+         $(win).on("resize scroll", visPx);
+       });
+    };
+  }(jQuery, window));
+
+      $(document).ready(function() {
+        $(".trail").inViewport(function(px){
+          if(px) $(this).addClass("trail_visible");
+          console.log("here!");
+        })
+      });
+    </script>
   </body>
 </html>
