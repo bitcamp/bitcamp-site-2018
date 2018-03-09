@@ -319,107 +319,25 @@ article.faq p {
 
 article.sponsors {
   /* Custom row-customs for the sponsor info */
-  /*Defining a row-custom class so it does not interfere with o
-  the bootstrap row class */
-  /* Additional styling for custom rows */
   /* image styling for sponsor logos */ }
-  article.sponsors .sponsors {
-    margin-bottom: 5rem; }
-  article.sponsors .sponsors img {
-    margin: 0 auto;
-    -webkit-transform: scale(0.9);
-    -moz-transform: scale(0.9);
-    -o-transform: scale(0.9);
-    transform: scale(0.9);
-    -webkit-transition: 0.15s 0s ease all;
-    -moz-transition: 0.15s 0s ease all;
-    -o-transition: 0.15s 0s ease all;
-    transition: 0.15s 0s ease all; }
-  article.sponsors .sponsors img:hover {
-    -webkit-transform: scale(1);
-    -moz-transform: scale(1);
-    -o-transform: scale(1);
-    transform: scale(1); }
-  article.sponsors .sponsors + .sponsors {
-    margin-top: -5rem; }
-  article.sponsors .sponsors .minimill {
-    margin-top: 35%; }
-  article.sponsors .row-custom {
-    display: block;
-    position: relative;
-    margin: 0 -2.5rem; }
-  article.sponsors .row-custom:after {
-    content: " ";
-    /* Older brow-customser do not support empty content */
-    visibility: hidden;
-    display: block;
-    height: 0;
-    clear: both; }
-  article.sponsors .row-custom .half, article.sponsors .row-custom .forty, article.sponsors .row-custom .third, article.sponsors .row-custom .quarter, article.sponsors .row-custom .sixth {
-    padding: 0 2.5rem;
-    display: inline-block;
-    float: left;
-    position: relative;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-    vertical-align: top; }
-  article.sponsors .row-custom .half {
-    width: 50%;
-    /*padding: 0px 50px 0px 50px;*/ }
-  article.sponsors .row-custom .forty {
-    width: 40%;
-    /*padding: 0px 75px 0px 75px; */ }
-  article.sponsors .row-custom .third {
-    width: 33.333333333%;
-    padding: 0px 50px 0px 50px; }
-  article.sponsors .row-custom .quarter {
-    width: 25%;
-    padding: 0px 25px 0px 25px; }
-  article.sponsors .row-custom .sixth {
-    width: 20%;
-    padding: 0px 25px 0px 25px;
-    /* temp increase */ }
-  article.sponsors .row-custom.with-divider:before {
-    display: block;
-    width: 0;
-    position: absolute;
-    left: 50%;
-    top: 0;
-    bottom: 0;
-    width: 2px;
-    content: " ";
-    -webkit-transform: translateX(-50%);
-    -moz-transform: translateX(-50%);
-    -o-transform: translateX(-50%);
-    transform: translateX(-50%);
-    background-color: #00ffff;
-    /* fallback */
-    background-image: -webkit-linear-gradient(top, #00ffff, #ff7bac);
-    background-image: linear-gradient(to bottom, #00ffff, #ff7bac); }
-  article.sponsors .row-custom.centered {
-    text-align: center;
-    font-size: 0; }
-  article.sponsors .row-custom.centered .half, article.sponsors .row-custom.centered .third, article.sponsors .row-custom.centered .forty, article.sponsors .row-custom.centered .quarter, article.sponsors .row-custom.centered .sixth {
-    float: none; }
-  @media screen and (max-width: 768px) {
-    article.sponsors .row-custom {
-      margin: 0; }
-    article.sponsors .row-custom .half, article.sponsors .row-custom .third, article.sponsors .row-custom .forty {
-      padding: 0;
+  article.sponsors div.pitch {
+    margin-top: 4rem;
+    margin-bottom: 4rem; }
+  article.sponsors div.logo {
+    padding: 4rem 2rem; }
+    article.sponsors div.logo a {
       display: block;
-      width: 100%; }
-    article.sponsors .row-custom .half:not(:first-child), article.sponsors .row-custom .third:not(:first-child), article.sponsors .row-custom .forty:not(:first-child) {
-      margin-top: 3.125rem; }
-    article.sponsors .row-custom .quarter, article.sponsors .row-custom .sixth {
-      width: 50%; }
-    article.sponsors .row-custom .quarter:nth-child(n+3), article.sponsors .row-custom .sixth:nth-child(n+3) {
-      margin-top: 2rem; }
-    article.sponsors .row-custom.with-divider:before {
-      display: none; } }
+      height: 8rem;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      article.sponsors div.logo a:hover {
+        filter: none; }
+    article.sponsors div.logo img {
+      max-height: 100%;
+      max-width: 100%; }
   article.sponsors .sponsors-img {
     max-width: 100%;
-    max-height: 100%;
     display: block; }
 
 article.footer .social-icons a {
