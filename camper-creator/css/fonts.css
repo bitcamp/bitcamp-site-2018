@@ -1,0 +1,28 @@
+@font-face {
+    font-family: "Aleo Regular";
+    src: url("fonts/Aleo/aleo-regular-webfont.eot");
+    src: 
+    url("fonts/Aleo/aleo-regular-webfont.woff") format("woff"),
+    url("fonts/Aleo/aleo-regular-webfont.otf") format("opentype"),
+    url("fonts/Aleo/aleo-regular-webfont.ttf") format("truetype"),
+    url("fonts/Aleo/aleo-regular-webfont.svg#filename") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Aleo Bold";
+    src: url("fonts/Aleo/aleo-bold-webfont.eot");
+    src: 
+    url("fonts/Aleo/aleo-bold-webfont.woff") format("woff"),
+    url("fonts/Aleo/aleo-bold-webfont.otf") format("opentype"),
+    url("fonts/Aleo/aleo-bold-webfont.ttf") format("truetype"),
+    url("fonts/Aleo/aleo-bold-webfont.svg#filename") format("svg");
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Avenir Light";
+    src: url("fonts/Avenir/AvenirLTStd-Light.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}

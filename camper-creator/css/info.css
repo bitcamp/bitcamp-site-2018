@@ -1,0 +1,49 @@
+@media screen and (max-width: 500px) {
+	.info-container {
+		width: 320px;
+		margin-top: 8px;
+		background-color: white;
+		padding: 12px;
+	}
+	.info-body {
+	    font-family: "Avenir Light";
+	    font-weight: normal;
+	    font-style: normal;
+	    font-size: 16px;
+	    color: #528CA5;
+	    margin-bottom: 8px;
+	}
+
+	.info-body__title {
+	    /*height: 36px;*/
+	    font-family: "Aleo Regular", sans-serif;
+	    font-weight: normal;
+	    font-style: normal;
+	    /*font-size: 28px;*/
+	    color: #FFAF3F;
+	}
+}
+@media screen and (min-width: 500px) {
+	.info-container {
+		width: 720px;
+		background-color: white;
+		padding: 12px;
+	}
+	.info-body {
+	    font-family: "Avenir Light";
+	    font-weight: normal;
+	    font-style: normal;
+	    font-size: 16px;
+	    color: #528CA5;
+	    margin-bottom: 8px;
+	}
+
+	.info-body__title {
+	    /*height: 36px;*/
+	    font-family: "Aleo Regular", sans-serif;
+	    font-weight: normal;
+	    font-style: normal;
+	    /*font-size: 28px;*/
+	    color: #FFAF3F;
+	}
+}
