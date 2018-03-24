@@ -3,7 +3,7 @@ var layerSelected;
 var totalLayerThumbnails = {'face': 4, 'hair': 2, 'eyebrows': 1, 'eyes': 10, 'nose': 2, 'mouth': 1, 'facial-hair': 0, 'accessory-1': 2, 'accessory-2': 2, 'accessory-3': 2, 'background': 12};
 var selectedIndex = {'face': -1, 'hair': -1, 'eyebrows': -1, 'eyes': -1, 'nose': -1, 'mouth': -1, 'facial-hair': -1, 'accessory-1': -1, 'accessory-2': -1, 'accessory-3': -1, 'background': -1}; // Indices start at 0, -1 == nothing selected
 var layerColor = {'face': 'rgb(255, 255, 255)', 'hair': 'rgb(255, 255, 255)', 'eyebrows': 'fixed', 'eyes': 'fixed', 'nose': 'fixed', 'mouth': 'fixed', 'facial-hair': 'rgb(255, 255, 255)', 'accessory-1': 'rgb(0, 0, 0)', 'accessory-2': 'rgb(0, 0, 0)', 'accessory-3': 'rgb(0, 0, 0)', 'background': 'rgb(255, 175, 63)'};
-var layerFlipped = {'hair': 1, 'eyebrows': 1, 'nose': 1, 'mouth': 1, 'facial-hair': 1, 'accessory-1': 1, 'accessory-2': 1, 'accessory-3': 1};
+var layerFlipped = {'face': 1, 'hair': 1, 'eyebrows': 1, 'eyes': 1, 'nose': 1, 'mouth': 1, 'facial-hair': 1, 'accessory-1': 1, 'accessory-2': 1, 'accessory-3': 1};
 var layerWidth = {'eyebrows': 0, 'eyes': 0}
 multiplier = 16;
 var canvasX = 32;
@@ -17,7 +17,19 @@ window.onload = function setup() {
     }
     var gettingStartedLink = document.querySelector('.help__link--getting-started');
     gettingStartedLink.onclick =  function() {
-    	openGettingStarted(1);
+        gettingStarted(1);
+    }
+    var changingPositionLink = document.querySelector('.help__link--changing-position');
+    changingPositionLink.onclick =  function() {
+        changingPosition(1);
+    }
+    var fixingMistakesLink = document.querySelector('.help__link--fixing-mistakes');
+    fixingMistakesLink.onclick =  function() {
+        fixingMistakes(1);
+    }
+    var savingSharingLink = document.querySelector('.help__link--saving-sharing');
+    savingSharingLink.onclick =  function() {
+        savingSharing(1);
     }
 
     // Set up tool buttons
@@ -68,10 +80,6 @@ window.onload = function setup() {
     var narrowBtn = document.querySelector('.move-tools__btn--narrow');
     narrowBtn.onclick = function() {
         changeWidth(-1);
-    }
-    var flipBtn = document.querySelector('.move-tools__btn--flip');
-    flipBtn.onclick = function() {
-        flip();
     }
     var resetPositionBtn = document.querySelector('.main-tools__btn--reset-position');
     resetPositionBtn.onclick = function() {
@@ -131,36 +139,53 @@ window.onload = function setup() {
     disableDPad();
     disableMoveTools(0,3);
     moveAllBtn.onclick = function() {
-    	if (moveAllBtn.classList.contains('move-tools__btn--selected')) {
-		    dPadUpBtn.onclick = function() {
-		        translateLayer(0,-1);
-		    }
-		    dPadDownBtn.onclick = function() {
-		        translateLayer(0,1);
-		    }
-		    dPadLeftBtn.onclick = function() {
-		        translateLayer(-1,0);
-		    }
-		    dPadRightBtn.onclick = function() {
-		        translateLayer(1,0);
-		    }
-    		moveAllBtn.classList.remove('move-tools__btn--selected');
-    	}
-    	else {
-		    dPadUpBtn.onclick = function() {
-    			translateAll(0, moveableLayers, 0, -1, false);
-		    }
-		    dPadDownBtn.onclick = function() {
-    			translateAll(0, moveableLayers, 0, 1, false);
-		    }
-		    dPadLeftBtn.onclick = function() {
-    			translateAll(0, moveableLayers, -1, 0, false);
-		    }
-		    dPadRightBtn.onclick = function() {
-    			translateAll(0, moveableLayers, 1, 0, false);
-		    }
-    		moveAllBtn.classList.add('move-tools__btn--selected');
-    	}
+        if (!moveAllBtn.classList.contains('move-tools__btn--disabled')) {
+        	if (moveAllBtn.classList.contains('move-tools__btn--selected')) {
+    		    dPadUpBtn.onclick = function() {
+    		        translateLayer(0,-1);
+    		    }
+    		    dPadDownBtn.onclick = function() {
+    		        translateLayer(0,1);
+    		    }
+    		    dPadLeftBtn.onclick = function() {
+    		        translateLayer(-1,0);
+    		    }
+    		    dPadRightBtn.onclick = function() {
+    		        translateLayer(1,0);
+    		    }
+        		moveAllBtn.classList.remove('move-tools__btn--selected');
+        	}
+        	else {
+    		    dPadUpBtn.onclick = function() {
+        			translateAll(0, moveableLayers, 0, -1, false);
+    		    }
+    		    dPadDownBtn.onclick = function() {
+        			translateAll(0, moveableLayers, 0, 1, false);
+    		    }
+    		    dPadLeftBtn.onclick = function() {
+        			translateAll(0, moveableLayers, -1, 0, false);
+    		    }
+    		    dPadRightBtn.onclick = function() {
+        			translateAll(0, moveableLayers, 1, 0, false);
+    		    }
+        		moveAllBtn.classList.add('move-tools__btn--selected');
+        	}
+        }
+    }
+    var flipBtn = document.querySelector('.move-tools__btn--flip');
+    flipBtn.onclick = function() {
+        if (!flipBtn.classList.contains('move-tools__btn--disabled')) {
+            if (moveAllBtn.classList.contains('move-tools__btn--selected')) {
+                moveAllBtn.classList.remove('move-tools__btn--selected');
+            }
+            dPadUpBtn.onclick = function() {
+                translateLayer(0,-1);
+            }
+            dPadDownBtn.onclick = function() {
+                translateLayer(0,1);
+            }
+            flip();
+        }
     }
 
     // Set up canvas background
@@ -232,6 +257,13 @@ window.onload = function setup() {
 		}
 		campfire.src = 'svg/background/campfire-white.svg';
 	}
+    if (window.matchMedia('(max-width: 500px)').matches) {
+        var saveLink = document.querySelector('.save-link');
+        var exportImgContainer = document.querySelector('.export-img-container');
+        saveLink.onclick = function() {
+            exportImgContainer.style.display = 'none';
+        }
+    }
     var shareSubmit = document.querySelector('.export-options__btn--yes');
     shareSubmit.onclick = function() {
     	// Preload
@@ -254,7 +286,7 @@ window.onload = function setup() {
     logOutLink.onclick = function() {
          FB.api(
             '/me/permissions',
-            'DELETE',
+            'DELETE'
         );
         FB.logout(function(response) {
             alert('Logged out successfully.');
@@ -391,47 +423,52 @@ function loadLayerThumbnails(pageNum, totalThumbnails) {
 function chooseLayer(button) {
     var thumbnailContainer = document.querySelector('.layer-thumbnails-container');
     var thumbnailNavContainer = document.querySelector('.layer-thumbnails-nav-container');
-    var helpMessageContainer = document.querySelector('.help-container');
-    var helpContainer = document.querySelector('.help-message-container');
 	var lastClicked = document.querySelector('.layers__btn--selected');
 
-	if (lastClicked != button) { // New
-        if (lastClicked == null) {
-	        helpContainer.style.display = 'none';
-	        helpMessageContainer.style.display = 'none';
-            lastClicked = button;
-        }
-        layerSelected = button.value.toLowerCase().replace(' ','-');
-        if (window.matchMedia('(max-width: 500px)').matches) {
-        	loadLayerThumbnails(parseInt(selectedIndex[layerSelected]/4) + 1, 4);  // Page of selected layer thumbnail + total thumbnails
-		} else {
-        	loadLayerThumbnails(parseInt(selectedIndex[layerSelected]/28) + 1, 28);
-		}
-        lastClicked.classList.remove('layers__btn--selected');
-        button.classList.add('layers__btn--selected');
-        thumbnailContainer.style.display = 'flex'; //TODO
-        thumbnailNavContainer.style.display = 'flex'; //TODO
-    	disablePalette();
-	    if (selectedIndex[layerSelected] != -1) {
-	    	if (layerSelected != 'background') {
-	    		enableDPad();
-	    		enableMoveTools(2,3);
-	    	}
-	    	else {
-	    		disableDPad();
-        		disableMoveTools(2,3);
-	    	}
-	    	if (layerSelected == 'eyes' || layerSelected == 'eyebrows') {
-	    		enableMoveTools(0,2);
-	    	}
-	    	if (layerColor[layerSelected] != 'fixed') {
-	    		enablePalette();
-	    	}
-	    }
-	    else {
-	    	disableDPad();
-	    	disableMoveTools(0,3);
-	    }
+    if (lastClicked == null) {
+        // Removes any tutorial stuff
+        var helpContainer = document.querySelector('.help-container');
+        var helpMessageContainer = document.querySelector('.help-message-container');
+        var helpMessage = document.querySelector('.help-message');
+        var helpNavContainer = document.querySelector('.help-nav-container');
+        var helpNavNext = document.querySelector('.help-nav__btn--next');
+        helpContainer.style.display = 'none';
+        helpMessageContainer.style.display = 'none';
+        helpMessage.style.display = 'none';
+        helpNavContainer.style.display = 'none';
+        helpNavNext.style.display = 'none';
+        lastClicked = button;
+    }
+    layerSelected = button.value.toLowerCase().replace(' ','-');
+    if (window.matchMedia('(max-width: 500px)').matches) {
+    	loadLayerThumbnails(parseInt(selectedIndex[layerSelected]/4) + 1, 4);  // Page of selected layer thumbnail + total thumbnails
+	} else {
+    	loadLayerThumbnails(parseInt(selectedIndex[layerSelected]/28) + 1, 28);
+	}
+    lastClicked.classList.remove('layers__btn--selected');
+    button.classList.add('layers__btn--selected');
+    thumbnailContainer.style.display = 'flex'; //TODO
+    thumbnailNavContainer.style.display = 'flex'; //TODO
+	disablePalette();
+    if (selectedIndex[layerSelected] != -1) {
+    	if (layerSelected != 'background') {
+    		enableDPad();
+    		enableMoveTools(2,3);
+    	}
+    	else {
+    		disableDPad();
+    		disableMoveTools(2,3);
+    	}
+    	if (layerSelected == 'eyes' || layerSelected == 'eyebrows') {
+    		enableMoveTools(0,2);
+    	}
+    	if (layerColor[layerSelected] != 'fixed') {
+    		enablePalette();
+    	}
+    }
+    else {
+    	disableDPad();
+    	disableMoveTools(0,3);
     }
 
     // Add/remove or enable/disable color palettes
@@ -504,12 +541,13 @@ function setIndexAndDraw(currentSelected, index) {
     }
 
     // FOR TUTORIAL
-	if (helpMessageContainer.style.display == 'flex') {
+    var helpMessage = document.querySelector('.help-message');
+	if (helpMessage.innerHTML == 'Next, select any option in the list above.') {
 		if (layerColor[layerSelected] != 'fixed') {
-			openGettingStarted(3); // Maybe check for help-message text too?..
+			gettingStarted(3);
 		}
 		else {
-			openGettingStarted(4);
+			gettingStarted(4);
 		}
 	}
 }
@@ -564,7 +602,7 @@ function disableMoveTools(start, end) {
 
 function enableMoveTools(start, end) {
     var moveBtns = document.querySelectorAll('.move-tools__btn');
-    for(i = 0; i < 4; i++) {
+    for(i = start; i < end; i++) {
     	moveBtns[i].classList.remove('move-tools__btn--disabled');
     }
 }
@@ -600,6 +638,7 @@ function drawImg(color) {
                 imgOutline.onerror = function() {
                     drawImg(color);
                 }
+                // Change file name for accessories
                 if (layerSelected.includes('accessory')) {
                     imgOutline.src = 'png/accessory/accessory-outline-' + selectedIndex[layerSelected] + '.png';
                 } else {
@@ -618,9 +657,9 @@ function drawImg(color) {
             layerColor[layerSelected] = color;
 
 		    // FOR TUTORIAL
-			var helpMessageContainer = document.querySelector('.help-message-container');
-        	if (helpMessageContainer.style.display == 'flex') {
-				openGettingStarted(4);
+			var helpMessage = document.querySelector('.help-message');
+        	if (helpMessage.innerHTML == 'Now, choose a color in the palette!') {
+				gettingStarted(4);
 			}
 
         } else {
@@ -860,18 +899,23 @@ function translateLayer(x,y) {
 
 function translateAll(layer, moveableLayers, x, y, reset) {
 	if (layer < moveableLayers.length) {
-        var ctx = moveableLayers[layer].getContext('2d');
-        // Erase + copy to current layer
-        ctx.clearRect(0, 0, canvasX, canvasY);
-        ctx.translate(x,y);
-        if (reset) {
-            ctx.setTransform(1, 0, 0, 1, 0, 0);
-        }
         var currentLayer = moveableLayers[layer].className;
         currentLayer = currentLayer.replace('layer ','');
         currentLayer = currentLayer.replace(' layer--exportable','');
         currentLayer = currentLayer.replace('layer--','');
         currentLayer = currentLayer.replace('--','-');
+        var ctx = moveableLayers[layer].getContext('2d');
+        // Erase + copy to current layer
+        ctx.clearRect(0, 0, canvasX, canvasY);
+        if (layerFlipped[currentLayer] == -1) {
+            ctx.translate(-1*x,y);
+        }
+        else {
+            ctx.translate(x,y);
+        }
+        if (reset) {
+            ctx.setTransform(1, 0, 0, 1, 0, 0);
+        }
         if (selectedIndex[currentLayer] != -1) {
 	        // DRAWIMG FUNCTION:
 	        ctx.clearRect(0, 0, canvasX, canvasY);
@@ -891,6 +935,7 @@ function translateAll(layer, moveableLayers, x, y, reset) {
 	                imgOutline.onerror = function() {
 	                    drawImg(color);
 	                }
+                    // Change file name for accessories
 	                if (currentLayer.includes('accessory')) {
 	                    imgOutline.src = 'png/accessory/accessory-outline-' + selectedIndex[currentLayer] + '.png';
 	                } else {
@@ -1025,14 +1070,12 @@ function openHelp() {
 	}
 }
 
-function openGettingStarted(stepNum) {
-	// TODO: DISABLE ERASE BUTTONS
+function gettingStarted(stepNum) {
 	var helpMessageContainer = document.querySelector('.help-message-container');
 	var helpMessage = document.querySelector('.help-message');
     var layersBtns = document.querySelectorAll('.layers__btn');
 	var layers = document.querySelector('.layers');
 	var thumbnailContainer = document.querySelector('.layer-thumbnails-container');
-	var thumbnailNavContainer = document.querySelector('.layer-thumbnails-nav-container');
 	var paletteContainer = document.querySelector('.palette-container');
     var paletteColors = document.querySelectorAll('.palette__color');
 
@@ -1040,18 +1083,20 @@ function openGettingStarted(stepNum) {
 	helpMessage.style.display = 'inline';
 	switch (stepNum) {
 		case 1: {
+            disableLeftTools();
+            // Custom chooseLayer
 		    for (i = 0; i < layersBtns.length; i++) {
 		        layersBtns[i].onclick = function() {
         			layerSelected = this.value.toLowerCase().replace(' ','-');
         			this.classList.add('layers__btn--selected');
-		            openGettingStarted(2);
+		            gettingStarted(2);
 		        }
 		    }
 			helpMessage.textContent = 'First, select a feature to add to the canvas (highlighted in orange).';
 			layers.style.backgroundColor = '#FFAF3F';
 			break;
 		}
-		case 2: {
+		case 2: {            
 			// Disable layer btns
 		    for (i = 0; i < layersBtns.length; i++) {
 		        layersBtns[i].onclick = function() {
@@ -1061,11 +1106,14 @@ function openGettingStarted(stepNum) {
 			layers.style.backgroundColor = 'white';
 			loadLayerThumbnails(1, 28);
 			thumbnailContainer.style.display = 'flex';
+            var thumbnailNavContainer = document.querySelector('.layer-thumbnails-nav-container');
 			thumbnailNavContainer.style.display = 'none';
 			helpMessage.textContent = 'Next, select any option in the list above.';
 			break;
 		}
 		case 3: {
+            disableDPad();
+            disableMoveTools(0,4);
 			thumbnailContainer.style.display = 'none';
 			helpMessage.textContent = 'Now, choose a color in the palette!';
 			paletteContainer.style.border = 'solid 6px #FFAF3F';
@@ -1103,22 +1151,198 @@ function openGettingStarted(stepNum) {
     		var lastClicked = document.querySelector('.layers__btn--selected');
     		helpNavNext.style.display = 'flex';
     		helpNavNext.onclick = function() {
+                var helpContainer = document.querySelector('.help-container');
+                helpMessage.textContent = '';
+                helpMessage.style.display = 'none';
+                helpContainer.style.display = 'none';
+                helpMessageContainer.style.display = 'none';
+                helpNavContainer.style.display = 'none';
+                chooseLayer(lastClicked);
+                enableLeftTools();
+                for (i = 0; i < layersBtns.length; i++) {
+                    layersBtns[i].onclick = function() {
+                        chooseLayer(this);
+                    }
+                }
     		}
     		break;
 		}
 	}
 }
 
+function changingPosition(stepNum) {
+    var helpMessageContainer = document.querySelector('.help-message-container');
+    var helpMessage = document.querySelector('.help-message');
+    var helpNavNext = document.querySelector('.help-nav__btn--next');
+
+    helpMessageContainer.style.display = 'flex';
+    helpMessage.style.display = 'inline';
+    switch (stepNum) {
+        case 1: {
+            var helpNavContainer = document.querySelector('.help-nav-container');
+            helpNavContainer.style.display = 'flex';
+            helpNavNext.style.display = 'flex';
+            helpNavNext.onclick = function() {
+                changingPosition(2);
+            }
+            helpMessage.textContent = 'The buttons below (highlighted in orange) are used to change positions.';
+            break;
+        }
+        case 2: {
+            helpNavNext.onclick = function() {
+                changingPosition(3);
+            }
+            helpMessage.textContent = 'The widen button widens.';
+            break;
+        }
+        case 3: {
+            helpNavNext.onclick = function() {
+                changingPosition(4);
+            }
+            helpMessage.textContent = 'The narrow button narrows.';
+            break;
+        }
+        case 4: {
+            helpNavNext.onclick = function() {
+                changingPosition(5);
+            }
+            helpMessage.textContent = 'The flip button flips.';
+            break;
+        }
+        case 5: {
+            helpNavNext.onclick = function() {
+                var helpNavContainer = document.querySelector('.help-nav-container');
+                helpNavContainer.style.display = 'none';
+                helpNavNext.style.display = 'none';
+                helpMessageContainer.style.display = 'none';
+                helpMessage.style.display = 'none';
+                openHelp();
+            }
+            helpMessage.textContent = 'The move all button moves all.';
+            break;
+        }
+    }
+}
+
+function fixingMistakes(stepNum) {
+    var helpMessageContainer = document.querySelector('.help-message-container');
+    var helpMessage = document.querySelector('.help-message');
+    var helpNavNext = document.querySelector('.help-nav__btn--next');
+
+    helpMessageContainer.style.display = 'flex';
+    helpMessage.style.display = 'inline';
+    switch (stepNum) {
+        case 1: {
+            var helpNavContainer = document.querySelector('.help-nav-container');
+            helpNavContainer.style.display = 'flex';
+            helpNavNext.style.display = 'flex';
+            helpNavNext.onclick = function() {
+                fixingMistakes(2);
+            }
+            helpMessage.textContent = 'The buttons to the left (highlighted in orange) are used to fix mistakes.';
+            break;
+        }
+        case 2: {
+            helpNavNext.onclick = function() {
+                fixingMistakes(3);
+            }
+            helpMessage.textContent = 'The erase layer button erases the layer.';
+            break;
+        }
+        case 3: {
+            helpNavNext.onclick = function() {
+                fixingMistakes(4);
+            }
+            helpMessage.textContent = 'The reset position button resets the position.';
+            break;
+        }
+        case 4: {
+            helpNavNext.onclick = function() {
+                fixingMistakes(5);
+            }
+            helpMessage.textContent = 'The erase all button erases all layers.';
+            break;
+        }
+        case 5: {
+            helpNavNext.onclick = function() {
+                var helpNavContainer = document.querySelector('.help-nav-container');
+                helpNavContainer.style.display = 'none';
+                helpNavNext.style.display = 'none';
+                helpMessageContainer.style.display = 'none';
+                helpMessage.style.display = 'none';
+                openHelp();
+            }
+            helpMessage.textContent = 'The reset all button resets all positions.';
+            break;
+        }
+    }
+}
+
+function savingSharing(stepNum) {
+    var helpMessageContainer = document.querySelector('.help-message-container');
+    var helpMessage = document.querySelector('.help-message');
+    var helpNavNext = document.querySelector('.help-nav__btn--next');
+
+    helpMessageContainer.style.display = 'flex';
+    helpMessage.style.display = 'inline';
+    switch (stepNum) {
+        case 1: {
+            var helpNavContainer = document.querySelector('.help-nav-container');
+            helpNavContainer.style.display = 'flex';
+            helpNavNext.style.display = 'flex';
+            helpNavNext.onclick = function() {
+                savingSharing(2);
+            }
+            helpMessage.textContent = 'The buttons to the left (highlighted in orange) are used to save and share.';
+            break;
+        }
+        case 2: {
+            helpNavNext.onclick = function() {
+                savingSharing(3);
+            }
+            helpMessage.textContent = 'The save button saves.';
+            break;
+        }
+        case 3: {
+            helpNavNext.onclick = function() {
+                var helpNavContainer = document.querySelector('.help-nav-container');
+                helpNavContainer.style.display = 'none';
+                helpNavNext.style.display = 'none';
+                helpMessageContainer.style.display = 'none';
+                helpMessage.style.display = 'none';
+                openHelp();
+            }
+            helpMessage.textContent = 'The share button shares.';
+            break;
+        }
+    }
+}
+
 function saveImg() {
 	var exportedImg = imgToDataURI();
     restoreSaveLayer();
-    var a = document.createElement('a');
-    a.style.display = 'none';
-    a.download = 'sprite.png';
-    a.href = exportedImg;
-	document.body.appendChild(a);
-    a.click();
-	document.body.removeChild(a);
+    if (window.matchMedia('(max-width: 500px)').matches) {
+        var exportImgContainer = document.querySelector('.export-img-container');
+        var exportImg = document.querySelector('.export-img');
+        exportImgContainer.style.display = 'flex';
+        exportImg.textContent = '';
+        var img = new Image();
+        img.style.height = '280px';
+        img.style.width = '280px';
+        img.onload = function() {
+            exportImg.append(img);
+        }
+        img.src = exportedImg;
+    }
+    else {
+        var a = document.createElement('a');
+        a.style.display = 'none';
+        a.download = 'sprite.png';
+        a.href = exportedImg;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+    }
 }
 
 function imgToDataURI() {
@@ -1312,5 +1536,62 @@ function unauthResponse() {
 	enableShareBtn();
 }
 
-function resetButtons() {
+function disableLeftTools() {
+    var mainTools = document.querySelectorAll('.main-tools__btn');
+    var exportTools = document.querySelectorAll('.export-tools__btn');
+    for (i = 0; i < mainTools.length; i++) {
+        mainTools[i].onclick = function() {
+            return false;
+        }
+    }
+    for (j = 0; j < exportTools.length; j++) {
+        exportTools[j].onclick = function() {
+            return false;
+        }
+
+    }
+
+}
+
+function enableLeftTools() {
+    var eraseLayerBtn = document.querySelector('.main-tools__btn--erase-layer');
+    eraseLayerBtn.onclick = function() {
+        eraseLayer();
+        if (layerSelected != 'background') {
+            if (layerColor[layerSelected] != 'fixed') {
+                if (layerSelected.includes('accessory')) {
+                    color = '#000000';
+                }
+                else {
+                    color = '#FFFFFF';
+                }
+            }
+        }
+        else {
+            layerColor['background'] = 'rgb(255, 175, 63)';
+            drawDefaultBackground();
+        }
+        disablePalette();
+        disableDPad();
+        disableMoveTools(0,3);
+    }
+    var eraseAllBtn = document.querySelector('.main-tools__btn--erase-all');
+    eraseAllBtn.onclick = function() {
+        eraseAll();
+        disablePalette();
+        disableDPad();
+        disableMoveTools(0,3);
+
+    }
+    var shareBtn = document.querySelector('.export-tools__btn--share');
+    enableShareBtn();
+    var saveBtn = document.querySelector('.export-tools__btn--save');
+    saveBtn.onclick = function() {
+        // Preload
+        var campfire = new Image();
+        campfire.onload = function() {
+            saveImg();
+        }
+        campfire.src = 'svg/background/campfire-white.svg';
+    }
 }
