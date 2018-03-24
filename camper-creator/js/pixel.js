@@ -13,6 +13,7 @@ window.onload = function setup() {
 	// Set up help
     var helpLink = document.querySelector('.help__link');
     helpLink.onclick =  function() {
+        FB.AppEvents.logEvent('Needed Help');
     	openHelp();
     }
     var gettingStartedLink = document.querySelector('.help__link--getting-started');
@@ -250,6 +251,7 @@ window.onload = function setup() {
   	}
     var saveBtn = document.querySelector('.export-tools__btn--save');
     saveBtn.onclick = function() {
+        FB.AppEvents.logEvent('Saved Sprite');
         // Preload
 		var campfire = new Image();
 		campfire.onload = function() {
@@ -266,6 +268,7 @@ window.onload = function setup() {
     }
     var shareSubmit = document.querySelector('.export-options__btn--yes');
     shareSubmit.onclick = function() {
+        FB.AppEvents.logEvent('Shared Sprite');
     	// Preload
         var campfire = new Image();
         campfire.onload = function() {
@@ -293,7 +296,7 @@ window.onload = function setup() {
             logOutLink.style.display = 'none';
         });
         loginContainer.style.display = 'none';
-        shareOptions.style.display = 'none';
+        shareCancel.click();
     }
 }
 
@@ -1396,7 +1399,6 @@ function enableShareBtn() {
     var shareBtn = document.querySelector('.export-tools__btn--share');
     var shareOptions = document.querySelector('.export-options');
     shareBtn.onclick = function() {
-        // FB.AppEvents.logEvent('Shared Sprite');
         if (!shareBtn.classList.contains('export-tools__btn--selected')) {
             FB.getLoginStatus(function(response) {
                 shareBtn.classList.add('export-tools__btn--selected');
@@ -1515,6 +1517,7 @@ function shareImgAuth() {
 				);
 			}
             shareSubmit.onclick = function() {
+                FB.AppEvents.logEvent('Shared Sprite');
                 shareImgAuth();
             }
 	    }
@@ -1587,6 +1590,7 @@ function enableLeftTools() {
     enableShareBtn();
     var saveBtn = document.querySelector('.export-tools__btn--save');
     saveBtn.onclick = function() {
+        FB.AppEvents.logEvent('Saved Sprite');
         // Preload
         var campfire = new Image();
         campfire.onload = function() {
