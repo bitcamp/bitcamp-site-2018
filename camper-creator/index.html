@@ -33,8 +33,24 @@ and open the template in the editor.
                 </div>
             </div>
             <div class="center">
+                <div class="export-options-login">
+                    <div class="export-options__title">
+                        Login to Facebook
+                    </div>
+                    <a class="disclaimer">
+                        This app requires permission to publish to Facebook. A login prompt
+                         will display after accepting.
+                    </a>
+                    <div class="export-options-login-submit">
+                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                        <br>
+                        <a class="go-back-link" href="#">or go back<a>
+                    </div>
+                </div>
                 <div class="export-options">
-                    <div class="export-options__title">Share to Facebook?</div>
+                    <div class="export-options__title">
+                        Share to Facebook?
+                    </div>
                     <div class="export-options__body">
                         <br>
                         <a>Add to Photos</a>
@@ -54,10 +70,6 @@ and open the template in the editor.
                             <textarea class="export-options--timeline__text"></textarea>
                             <br>
                         </div>
-                        <a class="disclaimer">
-                            This app requires permission to publish to Facebook. A login prompt
-                             will display after accepting.
-                        </a>
                         <br>
                     </div>
                     <div class="export-options-submit">
@@ -237,6 +249,7 @@ and open the template in the editor.
                 <a class="additional-info__link about-link" href="info#about" target="_blank">About</a>
                 <a class="additional-info__link contact-link" href="info#contact" target="_blank">Contact</a>
                 <a class="additional-info__link privacy-link" href="info#privacy" target="_blank">Privacy Policy</a>
+                <a class="additional-info__link log-out-link" href="#loggedOut">Log Out</a>
             </div>
         </div>
     </body>

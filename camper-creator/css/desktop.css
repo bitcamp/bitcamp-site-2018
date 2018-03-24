@@ -70,7 +70,7 @@
        -ms-user-select: none;
        user-select: none;
     }
-    .help-link:active {
+    .help__link:active {
         color: #1A2E33;
     }
     .container {
@@ -665,12 +665,58 @@
        -ms-user-select: none;
        user-select: none;
     }
+    .log-out-link {
+        display: none;
+    }
     .disclaimer {
         font-family: "Avenir Light";
         font-weight: normal;
         font-style: normal;
         font-size: 12px;
         color: #528CA5;
+    }
+    .export-options-login {
+        position: absolute;
+        background-color: white;
+        top: 52px;
+        left: 52px;
+        width: 400px;
+        /*height: 354px;*/
+        border-radius: 16px;
+        border: solid 4px #FFAF3F;
+        text-align: center;
+        /*display: none;*/
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+        z-index: 12;
+        display: none;
+    }
+    .export-options-login-submit {
+        height: 120px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: "Avenir Light";
+        font-weight: normal;
+        font-style: normal;
+        font-size: 28px;
+        color: #528CA5;
+        font-weight: normal;
+        font-style: normal;
+        font-size: 12px;
+    }
+    .go-back-link {
+        text-decoration: none;
+       -moz-user-select: -moz-none;
+       -khtml-user-select: none;
+       -webkit-user-select: none;
+       -ms-user-select: none;
+       user-select: none;
+    }
+    .go-back-link:active {
+        color: #1A2E33;
     }
     .export-options {
         position: absolute;
@@ -687,6 +733,10 @@
         align-items: center;
         justify-content: space-between;
         z-index: 12;
+    }
+    .fb-logo {
+        position: absolute;
+        left: 44px;
     }
     .export-options__title {
         height: 36px;

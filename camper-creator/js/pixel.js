@@ -1,4 +1,3 @@
-var loginStatus;
 var buttons_menu_top;
 var layerSelected;
 var totalLayerThumbnails = {'face': 4, 'hair': 2, 'eyebrows': 1, 'eyes': 10, 'nose': 2, 'mouth': 1, 'facial-hair': 0, 'accessory-1': 2, 'accessory-2': 2, 'accessory-3': 2, 'background': 12};
@@ -181,7 +180,9 @@ window.onload = function setup() {
           
         FB.AppEvents.logPageView();
 	    FB.getLoginStatus(function(response) {
-			loginStatus = response.status;
+            if (response.status == 'connected') {
+                logOutDisplay('inline');
+            }
 	    });
     };
 
@@ -196,12 +197,18 @@ window.onload = function setup() {
     } (document, 'script', 'facebook-jssdk'));
 
     var shareBtn = document.querySelector('.export-tools__btn--share');
-	var shareOptions = document.querySelector('.export-options');
-    shareBtn.onclick = function() {
-  		// FB.AppEvents.logEvent('Shared Sprite');
-		shareBtn.classList.add('export-tools__btn--selected');
-		shareOptions.style.display = 'flex';
-  	}
+    enableShareBtn();
+
+    var loginBtn = document.querySelector('.fb-login-button');
+    loginBtn.setAttribute('data-scope','publish_actions');
+    loginBtn.setAttribute('onlogin','shareImg();');
+
+    var goBackLink = document.querySelector('.go-back-link');
+    var loginContainer = document.querySelector('.export-options-login');
+    goBackLink.onclick = function() {
+        shareBtn.classList.remove('export-tools__btn--selected');
+        loginContainer.style.display = 'none';
+    }
 
   	var addToPhotosBtn = document.querySelector('.export-options--photo__btn');
   	var addToTimelineBtn = document.querySelector('.export-options--timeline__btn');
@@ -218,6 +225,7 @@ window.onload = function setup() {
   	}
     var saveBtn = document.querySelector('.export-tools__btn--save');
     saveBtn.onclick = function() {
+        // Preload
 		var campfire = new Image();
 		campfire.onload = function() {
         	saveImg();
@@ -227,17 +235,33 @@ window.onload = function setup() {
     var shareSubmit = document.querySelector('.export-options__btn--yes');
     shareSubmit.onclick = function() {
     	// Preload
-		var campfire = new Image();
-		campfire.src = 'svg/background/campfire-white.svg';
-    	shareImg();
+        var campfire = new Image();
+        campfire.onload = function() {
+            shareImgAuth();
+        }
+        campfire.src = 'svg/background/campfire-white.svg';
     }
     var shareCancel = document.querySelector('.export-options__btn--no');
+    var shareOptions = document.querySelector('.export-options');
     shareCancel.onclick = function() {
     	addToPhotosBtn.click();
     	photoTextArea.value = '';
     	timelineTextArea.value = '';
 		shareBtn.classList.remove('export-tools__btn--selected');
 		shareOptions.style.display = 'none';
+    }
+    var logOutLink = document.querySelector('.log-out-link');
+    logOutLink.onclick = function() {
+         FB.api(
+            '/me/permissions',
+            'DELETE',
+        );
+        FB.logout(function(response) {
+            alert('Logged out successfully.');
+            logOutLink.style.display = 'none';
+        });
+        loginContainer.style.display = 'none';
+        shareOptions.style.display = 'none';
     }
 }
 
@@ -1142,45 +1166,73 @@ function disableShareBtn() {
     }
 }
 
-function enableShareBtn(toolFunction) {
+function enableShareBtn() {
+    var loginContainer = document.querySelector('.export-options-login');
     var shareCancel = document.querySelector('.export-options__btn--no');
+    var shareBtn = document.querySelector('.export-tools__btn--share');
+    var shareOptions = document.querySelector('.export-options');
+    shareBtn.onclick = function() {
+        // FB.AppEvents.logEvent('Shared Sprite');
+        if (!shareBtn.classList.contains('export-tools__btn--selected')) {
+            FB.getLoginStatus(function(response) {
+                shareBtn.classList.add('export-tools__btn--selected');
+                if (response.status == 'connected') {
+                    FB.api('/me/permissions', function(permissionsResponse) {
+                        var permissions = permissionsResponse.data;
+                        if (permissions[0].permission == 'publish_actions' && permissions[0].status == 'granted') {
+                            openShareOptions();
+                        } else {
+                            loginContainer.style.display = 'flex';
+                        }
+                    });
+                }
+                else {
+                    loginContainer.style.display = 'flex';
+                }
+            });
+        }
+    }
     shareCancel.click();
 }
 
-function shareImg() {
-	disableShareBtn();
-    if (loginStatus != 'connected') {
-        FB.login(function(loginResponse) {
-        	if (loginResponse.authResponse) {
-	    		FB.api('/me/permissions', function(permissionsResponse) {
-	    			var permission = checkPublishPermissions(permissionsResponse.data);
-		            if (permission) {
-		                shareImgAuth();
-		            } else {
-		                unauthResponse();
-		            }
-    			});
+function openShareOptions() {
+    var loginContainer = document.querySelector('.export-options-login');
+    var shareOptions = document.querySelector('.export-options');
+    shareOptions.style.display = 'flex';
+    loginContainer.style.display = 'none';
+}
 
-        	}
-        	else {
-        		unauthResponse();
-        		// shareStatus('User cancelled login.');
-        	}
-        }, {scope: 'publish_actions'});
-    }
-    else {
-		FB.api('/me/permissions', function(permissionsResponse) {
-			var permission = checkPublishPermissions(permissionsResponse.data);
-            if (permission) {
-                shareImgAuth();
-            } else {
-                unauthResponse();
-            }
-		});
-    }
+function shareImg() {
+    var loginContainer = document.querySelector('.export-options-login');
+    FB.getLoginStatus(function(response) {
+        if (response.status === 'connected') {
+            logOutDisplay('inline');
+            FB.api('/me/permissions', function(permissionsResponse) {
+                var permissions = permissionsResponse.data;
+                if (permissions[0].permission == 'publish_actions' && permissions[0].status == 'granted') {
+                    openShareOptions();
+                } else {
+                    unauthResponse();
+                    loginContainer.style.display = 'none';
+                }
+            });
+        } else {
+            unauthResponse();
+            loginContainer.style.display = 'none';
+        }
+    });
+}
+
+function logOutDisplay(display) {
+    var logOutLink = document.querySelector('.log-out-link');
+    logOutLink.style.display = display;
 }
 
 function shareImgAuth() {
+    var shareSubmit = document.querySelector('.export-options__btn--yes');
+    shareSubmit.onclick = function() {
+        return false;
+    }
     var exportedImg = imgToDataURI();
     restoreSaveLayer();
 	var imgBlob = dataURIToBlob(exportedImg);
@@ -1238,6 +1290,9 @@ function shareImgAuth() {
 				    }
 				);
 			}
+            shareSubmit.onclick = function() {
+                shareImgAuth();
+            }
 	    }
 	    else {
 	    	console.log(xhr.responseText);
@@ -1255,16 +1310,6 @@ function shareStatus(text) {
 function unauthResponse() {
     alert('User cancelled login or did not fully authorize.');
 	enableShareBtn();
-}
-
-function checkPublishPermissions(responseData) {
-	for (i = 0; i < responseData.length; i++) { 
-		if (responseData[i].permission == 'publish_actions') {
-		 	if (responseData[i].status == 'granted') {
-		 		return true;
-		 	}
-		}
-	}
 }
 
 function resetButtons() {
