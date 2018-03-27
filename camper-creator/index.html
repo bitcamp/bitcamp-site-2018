@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Camper Creator</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- <script src='js/zepto.min.js'></script> -->
+        <script src='js/pixel.js'></script>
+        <link rel="stylesheet" type="text/css" href="css/fonts.css">
+        <link rel="stylesheet" type="text/css" href="css/desktop.css">
+        <link rel="stylesheet" type="text/css" href="css/mobile.css">
+    </head>
+    <body">
+    	<div class="title">bitcamp</div>
+    	<div class="subtitle">Camper Creator</div>
+        <div class="container">
+            <a class="help__link" href="#help">Need help?</a>
+            <div class="tools-sidebar">
+                <div class="main-tools">
+                    <input type="button" class="main-tools__btn main-tools__btn--erase-layer" value="Erase Layer">
+                    <input type="button" class="main-tools__btn main-tools__btn--reset-position" value="Reset Position">
+                    <input type="button" class="main-tools__btn main-tools__btn--erase-all" value="Erase All">
+                    <input type="button" class="main-tools__btn main-tools__btn--reset-all" value="Reset All">
+                </div>
+                <div class="export-tools">
+                    <input type="button" class="export-tools__btn export-tools__btn--save" value="Save!">
+                    <input type="button" class="export-tools__btn export-tools__btn--share" value="Share!">
+                </div>
+            </div>
+            <div class="center">
+                <div class="export-img-container">
+                    <div class="export-img"></div>
+                    <a>Exported to PNG!</a>
+                    <a class="save-link" href="#">Click here to go back</a>
+                </div>
+                <div class="export-options-login">
+                    <div class="export-options__title">
+                        Login to Facebook
+                    </div>
+                    <a class="disclaimer">
+                        This app requires permission to publish to Facebook. A login prompt
+                         will display after accepting.
+                    </a>
+                    <div class="export-options-login-submit">
+                        <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                        <br>
+                        <a class="go-back-link" href="#">or go back<a>
+                    </div>
+                </div>
+                <div class="export-options">
+                    <div class="export-options__title">
+                        Share to Facebook?
+                    </div>
+                    <div class="export-options__body">
+                        <br>
+                        <a>Add to Photos</a>
+                        <input type="radio" class="export-options--photo__btn" name="share" checked="checked">
+                        <br>
+                        <a>Share to Timeline</a>
+                        <input type="radio" class="export-options--timeline__btn" name="share">
+                        <br>
+                        <br>
+                        <div class="export-options-container--photo">
+                            <a>Add description to photo:</a>
+                            <textarea class="export-options--photo__text"></textarea>
+                            <br>
+                        </div>
+                        <div class="export-options-container--timeline">
+                            <a>Add description to Timeline:</a>
+                            <textarea class="export-options--timeline__text"></textarea>
+                            <br>
+                        </div>
+                        <br>
+                    </div>
+                    <div class="export-options-submit">
+                        <input type="button" class="export-options__btn export-options__btn--yes" value="Yes">
+                        <input type="button" class="export-options__btn export-options__btn--no" value="No">
+                    </div>
+                </div>
+                <canvas class="layer layer--background layer--exportable"></canvas>
+                <canvas class="layer layer--face layer--exportable"></canvas>
+                <canvas class="layer layer--hair layer--exportable"></canvas>
+                <canvas class="layer layer--eyebrows layer--exportable"></canvas>
+                <canvas class="layer layer--eyes layer--exportable"></canvas>
+                <canvas class="layer layer--nose layer--exportable"></canvas>
+                <canvas class="layer layer--mouth layer--exportable"></canvas>
+                <canvas class="layer layer--facial-hair layer--exportable"></canvas>
+                <canvas class="layer layer--accessory-1 layer--exportable"></canvas>
+                <canvas class="layer layer--accessory-2 layer--exportable"></canvas>
+                <canvas class="layer layer--accessory-3 layer--exportable"></canvas>
+                <canvas class="layer layer--save"></canvas>
+            </div>
+            <div class="center-sidebar">
+                <div class="layers-sidebar">
+                    <div class="layers">
+                        <input type="button" class="layers__btn layers__btn--face" value="Face">
+                        <input type="button" class="layers__btn layers__btn--hair" value="Hair">
+                        <input type="button" class="layers__btn layers__btn--eyebrows" value="Eyebrows">
+                        <input type="button" class="layers__btn layers__btn--eyes" value="Eyes">
+                        <input type="button" class="layers__btn layers__btn--nose" value="Nose">
+                        <input type="button" class="layers__btn layers__btn--mouth" value="Mouth">
+                        <input type="button" class="layers__btn layers__btn--facial-hair" value="Facial Hair">
+                        <input type="button" class="layers__btn layers__btn--accessory-1" value="Accessory 1">
+                        <input type="button" class="layers__btn layers__btn--accessory-2" value="Accessory 2">
+                        <input type="button" class="layers__btn layers__btn--accessory-3" value="Accessory 3">
+                        <input type="button" class="layers__btn layers__btn--background" value="Background">
+                    </div>
+                    <div class="d-pad-container">
+                        <div class="d-pad d-pad--up">
+                            <input type="button" class="d-pad__btn d-pad__btn--up" value="Up">
+                        </div>
+                        <div class="d-pad d-pad--mid">
+                            <input type="button" class="d-pad__btn d-pad__btn--left" value="Left">
+                            <input type="button" class="d-pad__btn d-pad__btn--right" value="Right">
+                        </div>
+                        <div class="d-pad d-pad--down">
+                            <input type="button" class="d-pad__btn d-pad__btn--down" value="Down">
+                        </div>
+                    </div>
+                </div>
+                <div class="palette-sidebar">
+                    <div class="palette-container">
+                        <div class="palette palette--bitcamp">
+                            <div class="palette__color palette__color--dark-brown"></div>
+                            <div class="palette__color palette__color--medium-brown"></div>
+                            <div class="palette__color palette__color--light-brown"></div>
+                            <div class="palette__color palette__color--cloud-white"></div>
+                            <div class="palette__color palette__color--flame-red"></div>
+                            <div class="palette__color palette__color--bitcamp-orange"></div>
+                            <div class="palette__color palette__color--yellow-orange"></div>
+                            <div class="palette__color palette__color--yellow"></div>
+                            <div class="palette__color palette__color--midnight-blue"></div>
+                            <div class="palette__color palette__color--medium-blue"></div>
+                            <div class="palette__color palette__color--sky-blue"></div>
+                        </div>
+                        <div class="palette palette--skin">
+                            <div class="palette__color palette__color--skin-1"></div>
+                            <div class="palette__color palette__color--skin-2"></div>
+                            <div class="palette__color palette__color--skin-3"></div>
+                            <div class="palette__color palette__color--skin-4"></div>
+                            <div class="palette__color palette__color--skin-5"></div>
+                            <div class="palette__color palette__color--skin-6"></div>
+                            <div class="palette__color palette__color--skin-7"></div>
+                        </div>
+                        <div class="palette palette--hair">
+                            <div class="palette__color palette__color--hair-1"></div>
+                            <div class="palette__color palette__color--hair-2"></div>
+                            <div class="palette__color palette__color--hair-3"></div>
+                            <div class="palette__color palette__color--hair-4"></div>
+                            <div class="palette__color palette__color--hair-5"></div>
+                            <div class="palette__color palette__color--hair-6"></div>
+                            <div class="palette__color palette__color--hair-7"></div>
+                            <div class="palette__color palette__color--hair-8"></div>
+                            <div class="palette__color palette__color--hair-9"></div>
+                            <div class="palette__color palette__color--hair-10"></div>
+                            <div class="palette__color palette__color--hair-11"></div>
+                        </div>
+                    </div>
+                    <div class="move-tools">
+                        <input type="button" class="move-tools__btn move-tools__btn--widen" value="Widen">
+                        <input type="button" class="move-tools__btn move-tools__btn--narrow" value="Narrow">
+                        <input type="button" class="move-tools__btn move-tools__btn--flip" value="Flip">
+                        <input type="button" class="move-tools__btn move-tools__btn--move-all" value="Move All">
+                    </div>
+                </div>
+            </div>
+            <div class="right-sidebar">
+                <div class="layer-thumbnails-nav-layer"></div>
+                <!-- dynamically load buttons -->
+                <div class="layer-thumbnails-container">
+                    <div class="layer-thumbnails__row layer-thumbnails__row--mobile">
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                    </div>
+                    <div class="layer-thumbnails__row">
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                    </div>
+                    <div class="layer-thumbnails__row">
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                    </div>
+                    <div class="layer-thumbnails__row">
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                    </div>
+                    <div class="layer-thumbnails__row">
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                    </div>
+                    <div class="layer-thumbnails__row">
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                    </div>
+                    <div class="layer-thumbnails__row">
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                        <div class="layer-thumbnails__row__cell"></div>
+                    </div>
+                </div>
+                <div class="layer-thumbnails-nav-container">
+                    <div class="layer-thumbnails-nav layer-thumbnails-nav--prev">
+                        <input  type="button" class="layer-thumbnails-nav__btn layer-thumbnails-nav__btn--prev" value="Previous"/>
+                    </div>
+                    <a class="layer-thumbnails-nav-page-num"></a>
+                    <div class="layer-thumbnails-nav layer-thumbnails-nav--next">
+                        <input type="button" class="layer-thumbnails-nav__btn layer-thumbnails-nav__btn--next" value="Next"/>
+                    </div>
+                </div>
+                <div class="help-container">
+                    <div class="help-message-container">
+                        <div class="help-message">
+                        </div>
+                        <div class="help-nav-container">
+                            <input type="button" class="help-nav__btn help-nav__btn--next" value="Next"/>
+                        </div>                
+                    </div>    
+                    <div class="help-contents">
+                        <a class="help-topic help__link--getting-started" href="#gettingStarted">1. Getting Started</a>
+                        <a class="help-topic help__link--changing-position" href="#changingPosition">2. Changing Position</a>
+                        <a class="help-topic help__link--fixing-mistakes" href="#fixingMistakes">3. Fixing Mistakes</a>
+                        <a class="help-topic help__link--saving-sharing" href="#savingAndSharing">4. Saving &amp; Sharing</a>
+                    </div>
+                </div>
+                <div class="intro-message-container">
+                    <img class="intro__img" src="svg/background/campfire.svg"/>
+                    <div class="intro-message">
+                        Welcome to Camper Creator! Create your own Bitcamp-themed sprite here!
+                    </div>
+                    <!-- <input type="button" class="intro__btn" value="OK"> -->
+                </div>
+            </div>
+        </div>
+        <div class="additional-info">
+            <div class="additional-info-container">
+                <a class="additional-info__link about-link" href="info#about" target="_blank">About</a>
+                <a class="additional-info__link contact-link" href="info#contact" target="_blank">Contact</a>
+                <a class="additional-info__link privacy-link" href="info#privacy" target="_blank">Privacy Policy</a>
+                <a class="additional-info__link log-out-link" href="#loggedOut">Log Out</a>
+            </div>
+        </div>
+    </body>
+</html>
