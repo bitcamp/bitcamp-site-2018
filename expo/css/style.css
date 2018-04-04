@@ -216,7 +216,7 @@ tr {
    width: 60%;
    font-size: 2em;
    outline: #FFFFFF;
-   padding: 30px;
+   padding-left: 20px;
 }
 
 ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
@@ -266,7 +266,7 @@ tr {
   #heading_text {
      font-size:5em;
      text-align: 'center';
-     padding-bottom: 7%;
+     padding-bottom: 15%;
  }
 
   #header {
