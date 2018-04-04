@@ -267,7 +267,7 @@ tr {
   #heading_text {
      font-size:5em;
      text-align: 'center';
-     padding-bottom: 10%;
+     padding-bottom: 19%;
  }
 
   #header {
@@ -286,7 +286,17 @@ tr {
 
 @media (min-width: 1280px) {
    #heading_text {
-      margin-bottom: 14%;
+      margin-bottom: 4%;
+   }
+
+   table {
+      margin-top: 3em;
+   }
+}
+
+@media (min-width: 1440px) {
+   #heading_text {
+      margin-bottom: 1%;
    }
 
    table {
@@ -297,7 +307,7 @@ tr {
 @media (min-width: 1600px) {
    #heading_text {
       font-size: 6em;
-      margin-bottom: 8%;
+      margin-bottom: -1%;
    }
 
    table {
