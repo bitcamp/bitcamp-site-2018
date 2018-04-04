@@ -153,6 +153,9 @@ tr.heading {
 th, td {
    padding: 1rem;
 }
+tbody, td.name {
+   width: 10%;
+}
 th {
     color: #CBF2FF;
     font-weight: bold;
@@ -227,6 +230,7 @@ tr {
    color: #FFFFFF;
 }
 
+/*
 @media (max-width: 450px) {
    .container {max-width: 300px; margin: 0 auto; overflow: auto;}
 
@@ -253,8 +257,9 @@ tr {
      font-size: 0.8em;
  }
 }
+*/
 
-@media (min-width: 1024px) {
+@media (max-width: 1024px) {
   .container {max-width: 900px; margin: 0 auto; overflow: auto;}
 
   #heading_text {
