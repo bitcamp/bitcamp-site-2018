@@ -38,7 +38,7 @@
   <div class="search_container">
     <input id="filter" class="search" type="search" placeholder="search by name, prize, trail, etc." id="filter"/>
   </div>
-    <table id="expoTable">
+    <table style="table-layout:fixed;" id="expoTable">
       <thead>
         <tr>
           <th class="number">TABLE</th>
@@ -51,7 +51,7 @@
         {{#data}}
           <tr>
             <td class="number">E{{expo}} T{{table}}</td>
-            <td class="name"><a href="{{{link}}}" target="_blank">{{project}}</a></td>
+            <td style="width: 15px" class="name"><a href="{{{link}}}" target="_blank">{{project}}</a></td>
             <td class="prize">{{sponsors}}</td>
             <td class="cat">{{category}}</td>
           </tr>
