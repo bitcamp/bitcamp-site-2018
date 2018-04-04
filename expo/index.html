@@ -12,7 +12,7 @@
   <meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT">
   <meta http-equiv="pragma" content="no-cache">
 
-  <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+  <meta name='viewport' content='width=1024, initial-scale=0.00000001, user-scalable=no'>
   <link href='//fonts.googleapis.com/css?family=Roboto:400,700,900,400italic' rel='stylesheet' type='text/css'>
   <link rel='stylesheet' type='text/css' href='css/style.css'>
   <script type='text/javascript' src='//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js'></script>
@@ -22,33 +22,36 @@
 </head>
 
 <body>
+   <img id="heading_image" src="img/header.jpg">
+   <center><h1 id="heading_text">Bitcamp 2018 Expo</h1></center>
+
   <div class="container">
-    <div id="header">
+    <!-- <div id="header">
       <h1>
         <a href="https://bitcamp2018.devpost.com/" title="Bitcamp 2018 Expo">Bitcamp 2018 Expo</a>
       <h1>
-    </div>
+    </div> -->
     <div id="fullTable"></div>
   </div>
 
   <script id="template" type="x-tmpl-mustache">
-    <div class="search_container">
-      <input class="search" type="search" placeholder="Filter by sponsor prize, project name, category or whatever" id="filter"/>
-    </div>
-    <table id="expoTable">
+  <div class="search_container">
+    <input id="filter" class="search" type="search" placeholder="search by name, prize, trail, etc." id="filter"/>
+  </div>
+    <table style="table-layout:fixed;" id="expoTable">
       <thead>
         <tr>
-          <th class="number">Table</th>
-          <th class="name">Project</th>
-          <th class="prize">Sponsor Prizes</th>
-          <th class="cat">Trail</th>
+          <th class="number">TABLE</th>
+          <th class="name">PROJECT</th>
+          <th class="prize">PRIZES</th>
+          <th class="cat">TRAIL</th>
         </tr>
       </thead>
       <tbody class="list">
         {{#data}}
           <tr>
             <td class="number">E{{expo}} T{{table}}</td>
-            <td class="name"><a href="{{{link}}}" target="_blank">{{project}}</a></td>
+            <td style="width: 20px" class="name"><a href="{{{link}}}" target="_blank">{{project}}</a></td>
             <td class="prize">{{sponsors}}</td>
             <td class="cat">{{category}}</td>
           </tr>
@@ -59,7 +62,9 @@
   <br>
   <div id="footer">
 
-    <a href="http://bitcamp2018.devpost.com"><img src="http://devpost0.assetspost.com/assets/shared/devpost_logo-646bdf6ac6663230947a952f8d354cad.svg" style="height: 30px;"></a>
+    <a id="devpost_container" href="http://bitcamp2018.devpost.com">
+      <img id="devpost" src="http://devpost0.assetspost.com/assets/shared/devpost_logo-646bdf6ac6663230947a952f8d354cad.svg" style="height: 30px;">
+   </a>
 
   </div>
 
