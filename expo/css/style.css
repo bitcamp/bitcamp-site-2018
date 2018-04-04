@@ -206,15 +206,16 @@ tr {
    margin: 0 34%; */
    font-family: Aleo;
    color: #FF7040;
-   font-size: 5em;
+   font-size: 5.5em;
    padding-top: 7%;
+   padding-bottom: 10%;
 }
 
 #filter {
    background-color:rgba(26, 46, 51, 0.3);
    color: #FFFFFF;
    width: 60%;
-   font-size: 2em;
+   font-size: 1.7em;
    outline: #FFFFFF;
    padding-left: 20px;
 }
@@ -266,7 +267,7 @@ tr {
   #heading_text {
      font-size:5em;
      text-align: 'center';
-     padding-bottom: 15%;
+     padding-bottom: 10%;
  }
 
   #header {
@@ -285,7 +286,7 @@ tr {
 
 @media (min-width: 1280px) {
    #heading_text {
-      margin-bottom: 4%;
+      margin-bottom: 14%;
    }
 
    table {
@@ -296,7 +297,7 @@ tr {
 @media (min-width: 1600px) {
    #heading_text {
       font-size: 6em;
-      margin-bottom: 4%;
+      margin-bottom: 8%;
    }
 
    table {
