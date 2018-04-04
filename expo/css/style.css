@@ -227,7 +227,34 @@ tr {
    color: #FFFFFF;
 }
 
-@media (max-width: 1024px) {
+@media (max-width: 450px) {
+   .container {max-width: 300px; margin: 0 auto; overflow: auto;}
+
+   #heading_image {
+      height: 100px;
+   }
+
+   #heading_text {
+      font-size:2em;
+      text-align: 'center';
+      padding-top: 8%;
+      padding-bottom: 16%;
+  }
+
+  #filter {
+     font-size: 1.2em;
+     width: 80%;
+  }
+
+  table {
+     font-size: 0.4em;
+  }
+  th {
+     font-size: 0.8em;
+ }
+}
+
+@media (min-width: 1024px) {
   .container {max-width: 900px; margin: 0 auto; overflow: auto;}
 
   #heading_text {
