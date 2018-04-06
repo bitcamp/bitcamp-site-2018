@@ -100,7 +100,7 @@ article.mobile-top {
   color: white;
   position: relative;
   z-index: 999;
-  height: 22rem;
+  height: 16rem;
   transition: ease height .3s; }
   article.mobile-top .links {
     padding: 2rem;
@@ -286,6 +286,10 @@ article.colorwar {
     width: 8rem;
     margin-bottom: 4rem; }
 
+article.schedule .trail-hightlight {
+  font-weight: bold;
+  color: #FFAF3F; }
+
 article.schedule .bp-btn {
   min-width: 20rem; }
 
@@ -306,6 +310,7 @@ article.schedule .schedule-table {
     article.schedule .schedule-table tr.heading {
       border: none; }
   article.schedule .schedule-table th, article.schedule .schedule-table td {
+    min-width: 12rem;
     padding: 1rem; }
   article.schedule .schedule-table th {
     color: #CBF2FF;
