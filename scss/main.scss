@@ -328,6 +328,10 @@ article.colorwar {
 
 article.schedule {
   @extend .page-section;
+  .trail-hightlight {
+    font-weight: bold;
+    color: $bp-yellow-orange;
+  }
   .bp-btn {
     min-width: 20rem;
     // margin-left: .8rem;
@@ -351,6 +355,7 @@ article.schedule {
       }
     }
     th, td {
+      min-width: 12rem;
       padding: 1rem;
       // padding-right: 1rem;
       // padding-bottom: .8rem;
