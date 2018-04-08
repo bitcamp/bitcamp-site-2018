@@ -18,6 +18,15 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="css/fonts.css">
         <link rel="stylesheet" type="text/css" href="css/desktop.css">
         <link rel="stylesheet" type="text/css" href="css/mobile.css">
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-117150928-1"></script>
+        <script>
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+
+          gtag('config', 'UA-117150928-1');
+        </script>
     </head>
     <body">
     	<div class="title">bitcamp</div>
@@ -33,7 +42,7 @@ and open the template in the editor.
                 </div>
                 <div class="export-tools">
                     <input type="button" class="export-tools__btn export-tools__btn--save" value="Save!">
-                    <!-- <input type="button" class="export-tools__btn export-tools__btn--share" value="Share!"> -->
+                    <input type="button" class="export-tools__btn export-tools__btn--share" value="Share!">
                 </div>
             </div>
             <div class="center">
@@ -48,7 +57,7 @@ and open the template in the editor.
                             <img class="export-options-logo" src="png/social/social-1.png">
                             <a class="export-options__link export-options__link--slack" href="#loginSlack">Share to Slack</a>
                         </div>
-                        <div>
+<!--                         <div>
                             <img class="export-options-logo" src="png/social/social-2.png">
                             <a class="export-options__link export-options__link--twitter" href="#loginTwitter">Share to Twitter</a>
                         </div>
@@ -56,7 +65,7 @@ and open the template in the editor.
                             <img class="export-options-logo" src="png/social/social-3.png">
                             <a class="export-options__link export-options__link--facebook" href="#loginFacebook">Share to Facebook</a>
                         </div>
-                        <div class="export-options-close">
+ -->                        <div class="export-options-close">
                             <a class="close-all__link close-all__link--login" href="#">Close</a>
                         </div>
                     </div>
@@ -90,7 +99,7 @@ and open the template in the editor.
                     </a>
                     <!-- redirect_uri should be changed accordingly -->
                     <div class="export-options-login-submit export-options-login-submit--slack">
-                        <a class="login--slack" href="https://slack.com/oauth/authorize?scope=users.profile:write&client_id=33353232930.335154144673&redirect_uri=http%3A%2F%2Fbit.camp%2Fcamper-creator%2Fauth&state=login" target="_blank">
+                        <a class="login--slack" href="https://slack.com/oauth/authorize?scope=users.profile:write&client_id=33353232930.335154144673&redirect_uri=http://localhost:8000/auth.html&state=login" target="_blank">
                             <img alt="Sign in with Slack" height="40" width="172" src="png/social/login-1.png" />
                         </a>
                         <br>
